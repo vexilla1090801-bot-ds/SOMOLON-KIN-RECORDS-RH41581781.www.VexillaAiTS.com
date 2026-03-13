@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset Exchange | SKRMG Apex Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;700&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --bg: #000000;
+            --surface: #0a0a0a;
+            --border: rgba(212, 175, 55, 0.15);
+            --glass: rgba(255, 255, 255, 0.03);
+            --text-main: #ffffff;
+            --text-dim: #666;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+        /* --- APEX NAVIGATION --- */
+        nav {
+            padding: 25px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(15px);
+            position: sticky; top: 0; z-index: 1000;
+            background: rgba(0,0,0,0.9);
+        }
+        .master-logo { height: 35px; filter: drop-shadow(0 0 5px var(--gold)); }
+        .nav-links a { text-decoration: none; color: var(--text-dim); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-left: 30px; }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* --- EXCHANGE HEADER --- */
+        .portal-hero { padding: 80px 5% 40px; text-align: left; }
+        .portal-hero h1 { font-family: 'Syncopate', sans-serif; font-size: 2.5rem; letter-spacing: -2px; margin-bottom: 10px; background: linear-gradient(to right, #fff, var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .repo-tag { font-family: 'Space Grotesk'; font-size: 0.7rem; color: var(--gold); letter-spacing: 5px; text-transform: uppercase; }
+
+        /* --- ASSET GRID --- */
+        .exchange-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            padding: 0 5% 100px;
+        }
+
+        .asset-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 25px;
+            position: relative;
+            transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            overflow: hidden;
+        }
+        .asset-card:hover { border-color: var(--gold); transform: translateY(-10px); background: rgba(212, 175, 55, 0.02); }
+
+        .asset-visual {
+            width: 100%;
+            height: 200px;
+            background: #111;
+            margin-bottom: 20px;
+            border: 1px solid #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk';
+            color: #222;
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+        }
+
+        .asset-type { font-size: 0.6rem; text-transform: uppercase; color: var(--gold); letter-spacing: 2px; margin-bottom: 10px; display: block; }
+        .asset-name { font-family: 'Space Grotesk'; font-size: 1.2rem; margin-bottom: 15px; }
+        
+        .price-row { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #1a1a1a; padding-top: 15px; }
+        .price-label { font-size: 0.6rem; color: var(--text-dim); text-transform: uppercase; }
+        .price-value { font-family: 'Syncopate'; font-size: 0.9rem; color: #fff; }
+
+        .btn-acquire {
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 12px;
+            margin-top: 20px;
+            font-family: 'Syncopate';
+            font-size: 0.6rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-acquire:hover { background: var(--gold); color: #000; }
+
+        /* --- LIVE TICKER FOOTER --- */
+        .ticker-bar {
+            position: fixed; bottom: 0; width: 100%;
+            background: var(--gold); color: #000;
+            padding: 10px; font-family: 'Space Grotesk'; font-size: 0.7rem;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
+            display: flex; justify-content: space-around;
+            z-index: 1000;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="brand-container">
+            <img src="logo.png" alt="SKRMG" class="master-logo">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Identity</a>
+            <a href="media.html">Media</a>
+            <a href="governance.html">Ethics</a>
+            <a href="command.html">Bridge</a>
+        </div>
+    </nav>
+
+    <header class="portal-hero">
+        <p class="repo-tag">Registry: RH41581781</p>
+        <h1>Asset Exchange</h1>
+    </header>
+
+    <main class="exchange-grid">
+        
+        <div class="asset-card">
+            <span class="asset-type">Neural Audio License</span>
+            <div class="asset-visual">M3_SIGNATURE.VEX</div>
+            <h2 class="asset-name">DJ M3: Genesis Stem Pack</h2>
+            <div class="price-row">
+                <div class="price-label">Current Value</div>
+                <div class="price-value">4.2 ETH</div>
+            </div>
+            <button class="btn-acquire">Initiate Acquisition</button>
+        </div>
+
+        <div class="asset-card">
+            <span class="asset-type">Theatrical Equity</span>
+            <div class="asset-visual">REALM_PROD_01</div>
+            <h2 class="asset-name">Mother's Mercy: Scene A1</h2>
+            <div class="price-row">
+                <div class="price-label">Current Value</div>
+                <div class="price-value">$12,500.00</div>
+            </div>
+            <button class="btn-acquire">Initiate Acquisition</button>
+        </div>
+
+        <div class="asset-card">
+            <span class="asset-type">Biometric Hardware</span>
+            <div class="asset-visual">VEX_KEY_HW</div>
+            <h2 class="asset-name">Vexilla ID: Cold Key</h2>
+            <div class="price-row">
+                <div class="price-label">Current Value</div>
+                <div class="price-value">$450.00</div>
+            </div>
+            <button class="btn-acquire">Initiate Acquisition</button>
+        </div>
+
+    </main>
+
+    <footer class="ticker-bar">
+        <div>RH41581781 SECURE</div>
+        <div>MARKET CAP: $425.2M</div>
+        <div>NETWORK STATUS: OPTIMAL</div>
+        <div>VEXILLA TOKEN: +12.4%</div>
+    </footer>
+
+</body>
+</html>
