@@ -3,189 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SKRMG Foundation | Community & Government Relations</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <title>Foundation | SKRMG Apex Endowment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@200;400;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #d4af37;
-            --gov-blue: #002868;
-            --dark-bg: #050505;
-            --glass: rgba(255, 255, 255, 0.05);
+            --bg: #000000;
+            --surface: #0a0a0a;
+            --border: rgba(212, 175, 55, 0.2);
             --text-main: #ffffff;
-            --text-dim: #a0a0a0;
+            --text-dim: #777;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            background-color: var(--dark-bg);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+        /* --- APEX NAVIGATION --- */
+        nav {
+            padding: 25px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(20px);
+            position: sticky; top: 0; z-index: 1000;
+            background: rgba(0,0,0,0.95);
         }
+        .master-logo { height: 35px; filter: drop-shadow(0 0 8px var(--gold)); }
+        .nav-links a { text-decoration: none; color: var(--text-dim); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-left: 30px; }
+        .nav-links a:hover { color: var(--gold); }
 
-        /* --- GOV HEADER --- */
-        .gov-header {
-            background: linear-gradient(90deg, var(--gov-blue) 0%, #000 100%);
-            padding: 60px 8%;
-            border-bottom: 4px solid var(--gold);
+        /* --- ENDOWMENT HERO --- */
+        .foundation-hero {
+            padding: 120px 10%;
+            text-align: center;
+            background: radial-gradient(circle at center, #111 0%, #000 100%);
+            border-bottom: 1px solid var(--border);
         }
+        .foundation-hero h1 { font-family: 'Syncopate', sans-serif; font-size: 3rem; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 20px; }
+        .foundation-hero p { max-width: 800px; margin: 0 auto; color: var(--text-dim); font-size: 1.1rem; font-weight: 200; line-height: 1.8; }
+        .stat-highlight { color: var(--gold); font-family: 'Space Grotesk'; font-weight: 700; margin-top: 30px; display: block; letter-spacing: 4px; }
 
-        .gov-header h1 { font-family: 'Space Grotesk'; font-size: 3rem; text-transform: uppercase; letter-spacing: -1px; }
-        .gov-header p { color: var(--gold); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; font-size: 0.8rem; }
-
-        /* --- CONTENT GRID --- */
-        .container { padding: 80px 8%; display: grid; grid-template-columns: 2fr 1fr; gap: 60px; }
-
-        .program-card {
-            background: var(--glass);
-            border-left: 4px solid var(--gold);
-            padding: 40px;
-            margin-bottom: 30px;
-            transition: 0.3s;
-        }
-
-        .program-card:hover { background: rgba(255,255,255,0.08); }
-        .program-card h3 { font-family: 'Space Grotesk'; color: var(--gold); margin-bottom: 10px; font-size: 1.5rem; }
+        /* --- PROGRAM GRID --- */
+        .program-container { padding: 80px 10%; }
+        .program-section-title { font-family: 'Space Grotesk'; font-size: 0.7rem; color: var(--gold); letter-spacing: 5px; text-transform: uppercase; margin-bottom: 40px; }
         
-        /* --- SIDEBAR: GOV COMPLIANCE --- */
-        .gov-sidebar {
-            background: #111;
-            padding: 30px;
-            border: 1px solid #222;
-            height: fit-content;
+        .program-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        
+        .program-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 50px;
+            transition: 0.4s ease;
+            position: relative;
         }
-
-        .status-pill {
-            background: #003300;
-            color: #39ff14;
-            padding: 5px 10px;
-            font-size: 10px;
-            font-weight: 900;
-            border-radius: 3px;
-            display: inline-block;
-            margin-bottom: 20px;
+        .program-card:hover { background: #0f0f0f; border-color: var(--gold); transform: scale(1.02); }
+        .program-card h2 { font-family: 'Space Grotesk'; font-size: 1.5rem; margin-bottom: 20px; text-transform: uppercase; }
+        .program-card p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.6; margin-bottom: 30px; }
+        
+        .funding-indicator {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.7rem;
+            font-family: 'Space Grotesk';
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
+        .progress-bar { flex: 1; height: 1px; background: #222; position: relative; }
+        .progress-fill { position: absolute; height: 1px; background: var(--gold); }
 
-        .data-point { margin-bottom: 20px; border-bottom: 1px solid #222; padding-bottom: 10px; }
-        .data-point label { font-size: 10px; color: var(--text-dim); text-transform: uppercase; display: block; }
-        .data-point span { font-family: 'Space Grotesk'; font-size: 1rem; color: #fff; }
-
-        /* --- EVENT TICKETS SECTION --- */
-        .events-strip {
-            background: #000;
-            padding: 80px 8%;
-            border-top: 1px solid #222;
-        }
-
-        .event-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
-        .event-box { border: 1px solid #333; padding: 25px; text-align: center; }
-        .event-date { color: var(--gold); font-family: 'Space Grotesk'; font-weight: 700; }
-
-        .btn-apply {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 30px;
+        /* --- CALL TO ACTION --- */
+        .grant-cta {
             background: var(--gold);
             color: #000;
-            text-decoration: none;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 0.75rem;
+            padding: 100px 5%;
+            text-align: center;
+            margin-top: 100px;
         }
+        .grant-cta h2 { font-family: 'Syncopate'; font-size: 2rem; margin-bottom: 20px; }
+        .btn-apply {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 20px 60px;
+            text-decoration: none;
+            font-family: 'Space Grotesk';
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: 30px;
+            transition: 0.3s;
+        }
+        .btn-apply:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
 
-        /* --- FOOTER --- */
-        footer { padding: 40px 8%; text-align: center; font-size: 0.7rem; color: #444; border-top: 1px solid #111; }
     </style>
 </head>
 <body>
 
-    <header class="gov-header">
-        <p>Public-Private Partnership Division</p>
-        <h1>The SKRMG Foundation</h1>
+    <nav>
+        <div class="brand-container">
+            <img src="logo.png" alt="SKRMG" class="master-logo">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Identity</a>
+            <a href="portal.html">Exchange</a>
+            <a href="media.html">Media</a>
+            <a href="academy.html">Academy</a>
+        </div>
+    </nav>
+
+    <header class="foundation-hero">
+        <h1>Foundation</h1>
+        <p>Architecting the transition from talent to digital sovereignty. We invest in the human element of the Vexilla ecosystem through strategic capital and technical empowerment.</p>
+        <span class="stat-highlight">CUMULATIVE ENDOWMENT: $12,400,000.00</span>
     </header>
 
-    <div class="container">
+    <main class="program-container">
+        <h3 class="program-section-title">Active Grant Initiatives</h3>
         
-        <main>
-            <h2 style="font-family: 'Space Grotesk'; margin-bottom: 40px; text-transform: uppercase;">Community Initiatives</h2>
-            
+        <div class="program-grid">
             <div class="program-card">
-                <h3>Vexilla Youth Mentorship</h3>
-                <p>Training the next generation of creators in secure digital identity and neuro-tech ethics. Our "Professions to Programs" initiative bridges professional artists with local talent.</p>
-                <a href="#" class="btn-apply">Inquire for Grant</a>
-            </div>
-
-            <div class="program-card">
-                <h3>VFX & Special Effects Workshop</h3>
-                <p>Partnering with REALM Pictures to provide vocational training in high-end CGI and practical effects for underrepresented communities.</p>
-                <a href="#" class="btn-apply">Register Student</a>
+                <h2>Professions to Programs</h2>
+                <p>Scaling vocational expertise into the digital realm. This grant supports the migration of physical craftsmanship into high-frequency neural assets.</p>
+                <div class="funding-indicator">
+                    <span>Allocated: 65%</span>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 65%;"></div></div>
+                </div>
             </div>
 
             <div class="program-card">
-                <h3>Neuro-Safety Public Awareness</h3>
-                <p>Educational seminars on V2K safeguards and the ethical use of Synthetic Media (Cast Ai Stars). Funding provided by the SKRMG G.R. Division.</p>
-                <a href="#" class="btn-apply">View White Paper</a>
+                <h2>Neural Ethics Fund</h2>
+                <p>Research and development for the ethical implementation of biometric IDs in global show business. Protecting the artist's digital soul.</p>
+                <div class="funding-indicator">
+                    <span>Allocated: 40%</span>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 40%;"></div></div>
+                </div>
             </div>
-        </main>
-
-        <aside class="gov-sidebar">
-            <div class="status-pill">SYSTEM STATUS: COMPLIANT</div>
-            <h4 style="color: var(--gold); margin-bottom: 20px; font-family: 'Space Grotesk';">G.R. SPECIFICATIONS</h4>
-            
-            <div class="data-point">
-                <label>Entity ID</label>
-                <span>SMRMG/RH41581781</span>
-            </div>
-            <div class="data-point">
-                <label>DUNS Status</label>
-                <span>VERIFIED (ACTIVE)</span>
-            </div>
-            <div class="data-point">
-                <label>CAGE Code</label>
-                <span>ASSIGNED</span>
-            </div>
-            <div class="data-point">
-                <label>Category</label>
-                <span>Arts, Entertainment, & Tech R&D</span>
-            </div>
-
-            <p style="font-size: 0.7rem; color: var(--text-dim); margin-top: 20px;">
-                SKRMG is currently open for **Federal R&D Contracts** regarding neural-asset protection and community-based digital literacy programs.
-            </p>
-        </aside>
-
-    </div>
-
-    <section class="events-strip">
-        <h2 style="font-family: 'Space Grotesk'; text-align: center; text-transform: uppercase;">Upcoming Community Events</h2>
-        <div class="event-grid">
-            
-            <div class="event-box">
-                <div class="event-date">JUNE 15, 2026</div>
-                <h4>SKRMG Tech Summit</h4>
-                <p style="font-size: 0.8rem; color: #888; margin: 10px 0;">Live VFX demonstrations and identity verification sign-ups.</p>
-                <a href="#" class="btn-apply" style="background: transparent; color: var(--gold); border: 1px solid var(--gold);">Get Free Pass</a>
-            </div>
-
-            <div class="event-box">
-                <div class="event-date">JULY 04, 2026</div>
-                <h4>Founders Gala</h4>
-                <p style="font-size: 0.8rem; color: #888; margin: 10px 0;">A night of talent and community recognition. Black Tie event.</p>
-                <a href="#" class="btn-apply" style="background: transparent; color: var(--gold); border: 1px solid var(--gold);">RSVP Online</a>
-            </div>
-
-            <div class="event-box">
-                <div class="event-date">AUG 22, 2026</div>
-                <h4>Cast Ai Stars Launch</h4>
-                <p style="font-size: 0.8rem; color: #888; margin: 10px 0;">Live virtual concert and community technology workshop.</p>
-                <a href="#" class="btn-apply" style="background: transparent; color: var(--gold); border: 1px solid var(--gold);">Tickets Available</a>
-            </div>
-
         </div>
+    </main>
+
+    <section class="grant-cta">
+        <h2>Submit a Proposal</h2>
+        <p>Seeking partnerships with cultural ministries and tech innovators.</p>
+        <a href="#" class="btn-apply">Access Grant Portal</a>
     </section>
 
-    <footer>
-        &copy; 2026 SOLOMON KIN RECORDS MEDIA GROUP | VEXILLA AiTS | GOVERNMENT RELATIONS OFFICE
+    <footer style="padding: 40px 10%; background: #000; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+        <div style="font-size: 0.6rem; color: #444; letter-spacing: 2px;">SKRMG FOUNDATION // REPO: RH41581781</div>
+        <div style="font-size: 0.6rem; color: #444;">EST. 2026</div>
     </footer>
 
 </body>
