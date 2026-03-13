@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKRMG Logistics | Global Fulfillment & Supply Chain</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --bg: #030303;
+            --surface: #0f0f0f;
+            --border: #1a1a1a;
+            --accent: #00ffcc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg); color: #fff; font-family: 'Inter', sans-serif; }
+
+        /* --- LOGISTICS HUD --- */
+        .hud-header {
+            padding: 40px 8%;
+            background: linear-gradient(180deg, #111 0%, #030303 100%);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hud-header h1 { font-family: 'Space Grotesk'; font-size: 1.5rem; letter-spacing: 3px; }
+        .live-count { font-family: 'Space Grotesk'; color: var(--accent); font-size: 0.8rem; }
+
+        /* --- TRACKING SECTION --- */
+        .logistics-grid {
+            padding: 60px 8%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .shipment-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 30px;
+            position: relative;
+        }
+
+        .status-tag {
+            position: absolute;
+            top: 30px; right: 30px;
+            font-size: 9px;
+            padding: 4px 10px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        .shipment-card h3 { font-family: 'Space Grotesk'; margin-bottom: 10px; color: var(--gold); }
+        .shipment-card p { font-size: 0.8rem; color: #666; margin-bottom: 20px; }
+
+        /* --- PROGRESS BAR --- */
+        .progress-track {
+            height: 2px;
+            background: #222;
+            width: 100%;
+            margin: 20px 0;
+            position: relative;
+        }
+        .progress-fill {
+            height: 2px;
+            background: var(--gold);
+            width: 65%;
+        }
+
+        /* --- SUPPLY TABLE --- */
+        .supply-table {
+            grid-column: span 2;
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 40px;
+            background: var(--surface);
+        }
+
+        .supply-table th { text-align: left; padding: 20px; border-bottom: 1px solid var(--border); font-size: 0.7rem; color: #444; text-transform: uppercase; }
+        .supply-table td { padding: 20px; border-bottom: 1px solid #111; font-size: 0.85rem; }
+
+        .btn-manifest {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 10px 20px;
+            font-size: 10px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hud-header">
+        <div>
+            <p style="font-size: 0.6rem; color: var(--gold); letter-spacing: 5px;">SKRMG GLOBAL SUPPLY</p>
+            <h1>Logistics Command</h1>
+        </div>
+        <div class="live-count">ACTIVE TRANSITS: 142 // REPO ID: RH41581781</div>
+    </header>
+
+    <main class="logistics-grid">
+        
+        <div class="shipment-card">
+            <span class="status-tag">In Transit</span>
+            <h3>Vexilla Hardware Keys (Batch A)</h3>
+            <p>Destination: Regional Distribution Center - East</p>
+            <div class="progress-track"><div class="progress-fill" style="width: 75%;"></div></div>
+            <p style="font-size: 0.7rem; color: #444;">ETA: 14:00 GMT // AES-256 SECURED</p>
+        </div>
+
+        <div class="shipment-card">
+            <span class="status-tag" style="border-color: var(--gold); color: var(--gold);">Processing</span>
+            <h3>Foundation Supply Drop</h3>
+            <p>Objective: Community VFX Training Hardware</p>
+            <div class="progress-track"><div class="progress-fill" style="width: 20%;"></div></div>
+            <p style="font-size: 0.7rem; color: #444;">Status: Grant Fund Verification Complete</p>
+        </div>
+
+        <table class="supply-table">
+            <thead>
+                <tr>
+                    <th>SKU / Asset ID</th>
+                    <th>Category</th>
+                    <th>Stock Level</th>
+                    <th>Regulatory Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>RH-VEX-KEY-01</td>
+                    <td>Biometric Hardware</td>
+                    <td>1,250 Units</td>
+                    <td style="color: var(--accent);">Cleared</td>
+                    <td><button class="btn-manifest">View Manifest</button></td>
+                </tr>
+                <tr>
+                    <td>M3-VINYL-LTD</td>
+                    <td>Media (Physical)</td>
+                    <td>500 Units</td>
+                    <td>Pending Audit</td>
+                    <td><button class="btn-manifest">View Manifest</button></td>
+                </tr>
+                <tr>
+                    <td>REALM-VR-KIT</td>
+                    <td>Special Effects Gear</td>
+                    <td>42 Units</td>
+                    <td style="color: var(--accent);">Cleared</td>
+                    <td><button class="btn-manifest">View Manifest</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </main>
+
+    <footer style="padding: 40px 8%; text-align: center; border-top: 1px solid var(--border); color: #222; font-size: 0.7rem;">
+        SKRMG LOGISTICS DIVISION | GLOBAL FULFILLMENT PROTOCOL | SMRMG/RH41581781
+    </footer>
+
+</body>
+</html>
