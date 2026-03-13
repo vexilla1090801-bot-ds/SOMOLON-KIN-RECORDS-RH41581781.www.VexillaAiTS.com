@@ -3,152 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vexilla AiTS | Technical White Paper | SKRMG</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <title>Technical Specifications | SKRMG Vexilla Protocol</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@200;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #d4af37;
-            --bg: #ffffff;
-            --text: #1a1a1a;
-            --sidebar-bg: #f8f9fa;
-            --accent-blue: #002868;
+            --bg: #000000;
+            --surface: #0a0a0a;
+            --border: rgba(212, 175, 55, 0.2);
+            --text-main: #ffffff;
+            --text-dim: #666;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            min-height: 100vh;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; line-height: 1.8; }
+
+        /* --- APEX NAVIGATION: SCALE ENHANCED --- */
+        nav {
+            position: sticky; top: 0; width: 100%;
+            padding: 40px 5% 20px;
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
         }
 
-        /* --- DOCS SIDEBAR --- */
-        .docs-nav {
-            background: var(--sidebar-bg);
-            border-right: 1px solid #e0e0e0;
-            padding: 50px 30px;
-            position: sticky;
-            top: 0;
-            height: 100vh;
+        .brand-container {
+            margin-bottom: 25px; 
         }
 
-        .docs-nav h2 { font-family: 'Space Grotesk'; font-size: 1rem; color: var(--accent-blue); margin-bottom: 30px; letter-spacing: 1px; }
-        .nav-group { margin-bottom: 25px; }
-        .nav-group h4 { font-size: 0.7rem; text-transform: uppercase; color: #888; margin-bottom: 10px; }
-        .nav-group a { display: block; color: var(--text); text-decoration: none; font-size: 0.85rem; margin-bottom: 8px; font-weight: 500; }
-        .nav-group a:hover { color: var(--gold); }
+        /* LOGO SCALED 3X */
+        .master-logo {
+            height: 135px; 
+            width: auto;
+            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4));
+        }
 
-        /* --- PAPER CONTENT --- */
-        .paper-container { padding: 80px 10% 100px; max-width: 1000px; }
-        
-        .paper-header { border-bottom: 2px solid #eee; margin-bottom: 50px; padding-bottom: 20px; }
-        .paper-header span { font-family: 'Space Grotesk'; color: var(--gold); font-weight: 700; font-size: 0.8rem; }
-        .paper-header h1 { font-size: 3rem; font-family: 'Space Grotesk'; line-height: 1.1; margin-top: 10px; color: var(--accent-blue); }
+        .nav-links { display: flex; gap: 35px; }
+        .nav-links a { 
+            text-decoration: none; color: var(--text-dim); 
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase; 
+            letter-spacing: 2px; transition: 0.4s;
+        }
+        .nav-links a:hover { color: var(--gold); }
 
-        .abstract {
-            background: #f0f4f8;
+        /* --- WHITEPAPER CONTENT --- */
+        .paper-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 5%;
+        }
+
+        .paper-header { border-bottom: 1px solid var(--border); padding-bottom: 40px; margin-bottom: 60px; }
+        .paper-header h1 { font-family: 'Syncopate'; font-size: 2rem; letter-spacing: 5px; margin-bottom: 10px; }
+        .paper-header span { font-family: 'Space Mono'; color: var(--gold); font-size: 0.8rem; letter-spacing: 3px; }
+
+        .paper-section { margin-bottom: 80px; }
+        .paper-section h2 { font-family: 'Syncopate'; font-size: 1rem; color: var(--gold); margin-bottom: 30px; letter-spacing: 3px; }
+        .paper-section p { color: #aaa; margin-bottom: 20px; font-weight: 300; }
+
+        .technical-block {
+            background: var(--surface);
+            border: 1px solid #1a1a1a;
             padding: 30px;
-            border-left: 5px solid var(--accent-blue);
-            font-style: italic;
-            margin-bottom: 40px;
-            line-height: 1.8;
+            font-family: 'Space Mono';
+            font-size: 0.8rem;
+            color: #888;
+            margin: 40px 0;
+            position: relative;
+        }
+        .technical-block::before {
+            content: "DECRYPTED_DATA";
+            position: absolute; top: -10px; left: 20px;
+            background: var(--gold); color: #000;
+            padding: 2px 10px; font-size: 0.6rem; font-weight: 700;
         }
 
-        h2 { font-family: 'Space Grotesk'; margin: 40px 0 20px; font-size: 1.8rem; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        p { margin-bottom: 20px; line-height: 1.7; color: #333; }
-
-        .tech-spec {
-            background: #1a1a1a;
-            color: #39ff14;
-            padding: 25px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.85rem;
-            border-radius: 4px;
-            margin: 30px 0;
+        /* --- FOOTER STATUS & LOGO --- */
+        footer {
+            padding: 60px 10%;
+            background: #000;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .gov-stamp {
-            border: 2px solid #ddd;
-            padding: 20px;
-            display: inline-block;
-            margin-top: 50px;
-            text-align: center;
-        }
-
-        .gov-stamp small { display: block; text-transform: uppercase; letter-spacing: 2px; font-size: 0.6rem; color: #888; }
-        .gov-stamp strong { font-family: 'Space Grotesk'; color: var(--accent-blue); }
+        .footer-left { display: flex; align-items: center; gap: 20px; }
+        .footer-logo { height: 35px; width: auto; opacity: 0.4; filter: grayscale(1); }
 
     </style>
 </head>
 <body>
 
-    <nav class="docs-nav">
-        <h2>VEXILLA AiTS DOCS</h2>
-        <div class="nav-group">
-            <h4>Foundation</h4>
-            <a href="#">Executive Summary</a>
-            <a href="#">The RH41581781 Protocol</a>
-            <a href="#">Neuro-Ethics Standards</a>
+    <nav>
+        <div class="brand-container">
+            <img src="logo.png" alt="SKRMG" class="master-logo">
         </div>
-        <div class="nav-group">
-            <h4>Technical Layers</h4>
-            <a href="#">Identity Verification (V1)</a>
-            <a href="#">NAS-4 Encryption</a>
-            <a href="#">Cast Ai Stars Logic</a>
-        </div>
-        <div class="nav-group">
-            <h4>Compliance</h4>
-            <a href="#">Federal Grant Alignment</a>
-            <a href="#">IP Sovereignty</a>
-            <a href="#">Data Privacy</a>
+        <div class="nav-links">
+            <a href="index.html">Identity</a>
+            <a href="portal.html">Exchange</a>
+            <a href="media.html">Media</a>
+            <a href="dashboard.html">Intelligence</a>
+            <a href="sitemap.html">Index</a>
         </div>
     </nav>
 
     <main class="paper-container">
-        
         <header class="paper-header">
-            <span>TECHNICAL WHITE PAPER | v2.0.26</span>
-            <h1>Digital Sovereignty & Neuro-Technology Safeguards</h1>
+            <span>PROTOCOL_RH41581781_DOC_V1</span>
+            <h1>The Vexilla Trust</h1>
         </header>
 
-        <section class="abstract">
-            <strong>Abstract:</strong> This paper outlines the framework for the Vexilla Artificial Intelligence Trust & Security (AiTS) protocol, a proprietary system developed by Solomon Kin Records Media Group (SKRMG). As synthetic media and neuro-technology (V2K) become prevalent in the entertainment sector, the RH41581781 protocol provides a verifiable ledger for human-originated IP, ensuring creator protection and public-private partnership transparency.
+        <section class="paper-section">
+            <h2>01. Biometric Sovereignty</h2>
+            <p>The core of the SKRMG conglomerate rests upon the immutable verification of the human artist. Through the Vexilla Trust, we encode high-frequency biometric data into a secure neural ledger, ensuring that IP cannot be replicated or used without a physical-layer handshake.</p>
+            
+            <div class="technical-block">
+                AUTH_KEY: 0xRH41581781<br>
+                LAYER: BIOMETRIC_ENCRYPTION_V3<br>
+                NODES: GEOSPATIAL_DISTRIBUTION_ACTIVE
+            </div>
         </section>
 
-        <h2>1. The Verification Problem</h2>
-        <p>
-            In the current media landscape, the distinction between human talent and synthetic replicas (Deepfakes) is diminishing. For government agencies and community foundations, this creates a crisis of trust. SKRMG addresses this through the <strong>Vexilla Verified Creator ID</strong>, a multi-factor biometric and blockchain-backed certificate.
-        </p>
-
-        
-
-        <h2>2. Technical Architecture (NAS-4)</h2>
-        <p>
-            The Neural-Asset Shield (NAS-4) utilizes high-frequency metadata embedding to "watermark" media at the neural-processing level. This prevents unauthorized AI training on SKRMG-owned movie treatments and recordings.
-        </p>
-
-        <div class="tech-spec">
-            // VEXILLA ENCRYPTION SEQUENCE<br>
-            SECURE_INIT(RH41581781);<br>
-            DEFINE_LAYER: NEURAL_SHIELD_V4;<br>
-            AUTH_TOKEN: SHA-256(SKRMG_CONGLOMERATE);<br>
-            STATUS: ACTIVE_PROTECTION_ENABLED;
-        </div>
-
-        <h2>3. Public-Private Partnership & Funding</h2>
-        <p>
-            By establishing these standards, SKRMG qualifies for federal R&D grants under the "Digital Arts & Security" category. Our foundation programs use this technology to teach digital literacy, ensuring that community participants are protected from identity harvesting and V2K interference.
-        </p>
-
-        <div class="gov-stamp">
-            <small>Repository Authentication</small>
-            <strong>SMRMG/RH41581781</strong>
-            <small>DUNS: VERIFIED | CAGE: ACTIVE</small>
-        </div>
-
+        <section class="paper-section">
+            <h2>02. High-Frequency Media</h2>
+            <p>Our media distribution utilizes the REALM protocol, allowing for zero-latency synchronization between artistic performance and global consumer access. This framework bypasses traditional gatekeepers, returning 90% of revenue directly to the Vexilla-authenticated talent.</p>
+        </section>
     </main>
+
+    <footer>
+        <div class="footer-left">
+            <img src="logo.png" alt="SKRMG" class="footer-logo">
+            <div style="font-size: 0.6rem; color: #333; letter-spacing: 2px;">VEXILLA TECHNICAL DOCUMENTATION // REPO: RH41581781</div>
+        </div>
+        <div style="font-size: 0.6rem; color: #333;">SECURITY LEVEL: ALPHA</div>
+    </footer>
 
 </body>
 </html>
