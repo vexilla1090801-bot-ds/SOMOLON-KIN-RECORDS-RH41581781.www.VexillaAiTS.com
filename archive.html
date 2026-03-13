@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKRMG Archive | The Heritage Vault</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --sepia: #f4ecd8;
+            --bg: #080808;
+            --paper: #121212;
+            --border: #222;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            background-color: var(--bg); 
+            color: #fff; 
+            font-family: 'Inter', sans-serif; 
+            overflow-x: hidden;
+        }
+
+        /* --- ARCHIVE HERO --- */
+        .archive-hero {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), var(--bg)), url('picture1.jpg');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .archive-hero h1 { 
+            font-family: 'Space Grotesk'; 
+            font-size: 4rem; 
+            text-transform: uppercase; 
+            color: var(--sepia);
+            letter-spacing: 10px;
+        }
+
+        .archive-hero p { 
+            font-family: 'Space Grotesk'; 
+            color: var(--gold); 
+            text-transform: uppercase; 
+            letter-spacing: 5px; 
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+        /* --- THE VAULT GRID --- */
+        .vault-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            max-width: 1400px;
+            margin: -50px auto 100px;
+        }
+
+        .vault-item {
+            background: var(--paper);
+            padding: 50px;
+            transition: 0.5s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vault-item:hover { background: #1a1a1a; }
+        .vault-item:hover h3 { color: var(--gold); }
+
+        .vault-item span { 
+            font-family: 'Space Grotesk'; 
+            font-size: 0.6rem; 
+            color: #444; 
+            display: block; 
+            margin-bottom: 20px; 
+        }
+
+        .vault-item h3 { 
+            font-family: 'Space Grotesk'; 
+            font-size: 1.2rem; 
+            margin-bottom: 15px; 
+            transition: 0.3s;
+        }
+
+        .vault-item p { 
+            font-size: 0.8rem; 
+            color: #888; 
+            line-height: 1.6;
+        }
+
+        .watermark {
+            position: absolute;
+            bottom: -20px;
+            right: -10px;
+            font-family: 'Space Grotesk';
+            font-size: 5rem;
+            color: rgba(255,255,255,0.02);
+            font-weight: 900;
+            user-select: none;
+        }
+
+        /* --- ACCESS BANNER --- */
+        .access-banner {
+            text-align: center;
+            padding: 100px 8%;
+            background: #000;
+        }
+
+        .btn-request {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 20px 50px;
+            font-family: 'Space Grotesk';
+            text-transform: uppercase;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: 3px;
+        }
+
+        .btn-request:hover { background: var(--gold); color: #000; }
+
+    </style>
+</head>
+<body>
+
+    <header class="archive-hero">
+        <h1>HERITAGE</h1>
+        <p>The Solomon Kin Records Master Repository</p>
+    </header>
+
+    <main class="vault-grid">
+        <div class="vault-item">
+            <span>FILEID: GEN-001 / RH41581781</span>
+            <h3>The Vexilla Protocol</h3>
+            <p>Original architectural drawings and the first successful biometric handshake between organic audio and synthetic ledger.</p>
+            <div class="watermark">01</div>
+        </div>
+
+        <div class="vault-item">
+            <span>FILEID: GEN-002 / AUDIO-M3</span>
+            <h3>DJ M3 Master Tapes</h3>
+            <p>Uncompressed original recordings from the foundational sessions. These assets serve as the biometric anchor for all future AI synthesis.</p>
+            <div class="watermark">02</div>
+        </div>
+
+        <div class="vault-item">
+            <span>FILEID: GEN-003 / GOV-ART</span>
+            <h3>The Founding Charter</h3>
+            <p>Official communication between SKRMG and public-private partners establishing the 'Professions to Programs' initiative.</p>
+            <div class="watermark">03</div>
+        </div>
+
+        <div class="vault-item">
+            <span>FILEID: GEN-004 / REALM-01</span>
+            <h3>Mother's Mercy Slate</h3>
+            <p>The initial pitch decks and concept art for REALM Pictures' first theatrical venture into neural-media.</p>
+            <div class="watermark">04</div>
+        </div>
+
+        <div class="vault-item">
+            <span>FILEID: GEN-005 / NEURAL-V4</span>
+            <h3>NAS-4 Original Code</h3>
+            <p>The source code of the first Neural-Asset Shielding protocol, timestamped and verified by global security nodes.</p>
+            <div class="watermark">05</div>
+        </div>
+
+        <div class="vault-item">
+            <span>FILEID: GEN-006 / LEGACY</span>
+            <h3>The Golden Records</h3>
+            <p>Physical artifacts and historical press cuttings from the conglomerate's emergence into the 2026 global market.</p>
+            <div class="watermark">06</div>
+        </div>
+    </main>
+
+    <section class="access-banner">
+        <h2 style="font-family: 'Space Grotesk'; margin-bottom: 20px; font-size: 1.5rem;">Access Institutional History</h2>
+        <p style="color: #444; max-width: 600px; margin: 0 auto 40px; font-size: 0.9rem;">
+            Heritage vault access is restricted to Level 4 Administrators and Government Auditors. 
+            Historical researchers may apply for limited-entry permits.
+        </p>
+        <button class="btn-request">Request Access Key</button>
+    </section>
+
+    <footer style="padding: 40px; text-align: center; color: #222; font-size: 0.6rem; letter-spacing: 2px;">
+        SKRMG HERITAGE DIVISION | SECURED BY VEXILLA AiTS | EST. 2026
+    </footer>
+
+</body>
+</html>
