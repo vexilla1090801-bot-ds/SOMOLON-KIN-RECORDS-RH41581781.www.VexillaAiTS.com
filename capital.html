@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKRMG Capital | Investor Relations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --slate: #1a1c1e;
+            --gold: #d4af37;
+            --bg: #ffffff;
+            --text: #000000;
+            --accent: #e5e7eb;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; }
+
+        /* --- CAPITAL HEADER --- */
+        .capital-header {
+            padding: 80px 8% 40px;
+            border-bottom: 1px solid var(--accent);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .capital-header h1 { font-family: 'Space Grotesk'; font-size: 3rem; text-transform: uppercase; line-height: 0.9; }
+        .ticker { font-family: 'Space Grotesk'; font-weight: 700; color: var(--gold); letter-spacing: 2px; }
+
+        /* --- FISCAL GRID --- */
+        .fiscal-wrap { padding: 60px 8%; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; }
+        
+        .report-card {
+            border: 1px solid var(--accent);
+            padding: 40px;
+            transition: 0.3s;
+        }
+        .report-card:hover { border-color: var(--gold); }
+        .report-card span { font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+        .report-card h2 { font-family: 'Space Grotesk'; margin: 15px 0; font-size: 1.2rem; }
+        
+        /* --- DOWNLOAD LINK --- */
+        .btn-pdf {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+            border-bottom: 1px solid var(--gold);
+        }
+
+        /* --- SHAREHOLDER SECTION --- */
+        .shareholder-portal {
+            background: var(--slate);
+            color: #fff;
+            padding: 80px 8%;
+            margin-top: 40px;
+        }
+        .shareholder-portal h2 { font-family: 'Space Grotesk'; margin-bottom: 40px; }
+
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+            font-size: 0.9rem;
+        }
+        .data-row .val { color: var(--gold); font-weight: 700; }
+
+    </style>
+</head>
+<body>
+
+    <header class="capital-header">
+        <div>
+            <div class="ticker">SKRMG : PRIVATE CONGLOMERATE</div>
+            <h1>Capital & <br>Lending</h1>
+        </div>
+        <div style="text-align: right;">
+            <p style="font-size: 0.8rem; color: #888;">FISCAL YEAR: 2026</p>
+            <p style="font-size: 0.8rem; color: #888;">REPO: RH41581781</p>
+        </div>
+    </header>
+
+    <main class="fiscal-wrap">
+        <div class="report-card">
+            <span>Quarterly Earnings</span>
+            <h2>Q1 2026 Media Performance</h2>
+            <p style="font-size: 0.85rem; color: #555;">Reviewing streaming dividends from DJ M3 and initial REALM Pictures presales.</p>
+            <a href="#" class="btn-pdf">DOWNLOAD REPORT (PDF)</a>
+        </div>
+
+        <div class="report-card">
+            <span>Governance</span>
+            <h2>Grant Allocation Audit</h2>
+            <p style="font-size: 0.85rem; color: #555;">Transparency report on the $10M Professions to Programs federal grant distribution.</p>
+            <a href="#" class="btn-pdf">DOWNLOAD REPORT (PDF)</a>
+        </div>
+
+        <div class="report-card">
+            <span>Future Growth</span>
+            <h2>Series B Funding Deck</h2>
+            <p style="font-size: 0.85rem; color: #555;">Projections for Vexilla Biometric expansion into the European market.</p>
+            <a href="#" class="btn-pdf">VIEW PITCH DECK</a>
+        </div>
+    </main>
+
+    <section class="shareholder-portal">
+        <h2>Shareholder Equity Ledger</h2>
+        <div class="data-row">
+            <div>Authorized Common Stock</div>
+            <div class="val">50,000,000 SHARES</div>
+        </div>
+        <div class="data-row">
+            <div>Vexilla Protocol Valuation</div>
+            <div class="val">$425,000,000</div>
+        </div>
+        <div class="data-row">
+            <div>Foundation Endowment</div>
+            <div class="val">$12,400,000</div>
+        </div>
+        <div class="data-row" style="border: none;">
+            <div>Institutional Handshake (RH41581781)</div>
+            <div class="val">ACTIVE / VERIFIED</div>
+        </div>
+    </section>
+
+    <footer style="padding: 60px 8%; text-align: center; color: #ccc; font-size: 0.7rem;">
+        SKRMG CAPITAL GROUP | INVESTOR RELATIONS OFFICE | &copy; 2026
+    </footer>
+
+</body>
+</html>
