@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKRMG | Emergency Response Protocol</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --emergency-red: #ff0000;
+            --bg: #000;
+            --panel: #0a0000;
+            --text: #ffffff;
+            --border: #330000;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; overflow: hidden; }
+
+        /* --- EMERGENCY OVERLAY --- */
+        .emergency-screen {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 20px solid var(--emergency-red);
+            animation: border-flash 1.5s infinite;
+        }
+
+        @keyframes border-flash { 0%, 100% { border-color: #330000; } 50% { border-color: var(--emergency-red); } }
+
+        .auth-box {
+            background: var(--panel);
+            border: 1px solid var(--emergency-red);
+            padding: 50px;
+            text-align: center;
+            max-width: 600px;
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.2);
+        }
+
+        h1 { font-family: 'Space Grotesk'; font-size: 2rem; color: var(--emergency-red); margin-bottom: 20px; letter-spacing: 5px; }
+        p { font-size: 0.8rem; color: #888; margin-bottom: 40px; line-height: 1.6; }
+
+        /* --- PROTOCOL STEPS --- */
+        .protocol-list { text-align: left; margin-bottom: 40px; }
+        .step { border-left: 2px solid var(--emergency-red); padding-left: 20px; margin-bottom: 20px; }
+        .step strong { display: block; font-size: 0.7rem; color: var(--emergency-red); text-transform: uppercase; }
+        .step span { font-size: 0.9rem; }
+
+        /* --- SYSTEM SHUTDOWN BTN --- */
+        .btn-killswitch {
+            background: var(--emergency-red);
+            color: #fff;
+            border: none;
+            padding: 15px 40px;
+            font-family: 'Space Grotesk';
+            font-weight: 900;
+            text-transform: uppercase;
+            cursor: pointer;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .btn-killswitch:hover { background: #fff; color: #000; box-shadow: 0 0 30px #fff; }
+
+        .system-id { position: absolute; bottom: 40px; font-family: 'Space Grotesk'; font-size: 10px; color: #444; }
+
+    </style>
+</head>
+<body>
+
+    <main class="emergency-screen">
+        <div class="auth-box">
+            <h1>PROTOCOL 41581781</h1>
+            <p>CRISIS MANAGEMENT INTERFACE: AUTHORIZED PERSONNEL ONLY. <br>Unauthorized access will trigger a biometric trace and law enforcement notification.</p>
+            
+            <div class="protocol-list">
+                <div class="step">
+                    <strong>Phase 01: Asset Decoupling</strong>
+                    <span>Immediately disconnect all REALM Pictures render-farms from the public cloud.</span>
+                </div>
+                <div class="step">
+                    <strong>Phase 02: Neural Lockdown</strong>
+                    <span>Activate NAS-4 "Poison Pill" on all outbound streams to invalidate unauthorized AI ingestion.</span>
+                </div>
+                <div class="step">
+                    <strong>Phase 03: Identity Freeze</strong>
+                    <span>Suspend all Vexilla ID verification services until manual audit by SKRMG Legal is complete.</span>
+                </div>
+            </div>
+
+            <button class="btn-killswitch">Initialize Global Kill-Switch</button>
+        </div>
+
+        <div class="system-id">
+            SYSTEM_LOCALTIME: 03.13.2026.00:22:15 // REPO_REF: SMRMG/RH41581781-SECURE
+        </div>
+    </main>
+
+</body>
+</html>
