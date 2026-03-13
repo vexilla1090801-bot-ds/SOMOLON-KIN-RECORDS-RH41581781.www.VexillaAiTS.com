@@ -3,139 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SKRMG | Master Directory & Sitemap</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <title>Directory | SKRMG Apex Index</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@200;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #d4af37;
-            --bg: #050505;
-            --border: #222;
-            --text-dim: #666;
+            --bg: #000000;
+            --surface: #0a0a0a;
+            --border: rgba(212, 175, 55, 0.15);
+            --text-main: #ffffff;
+            --text-dim: #444;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            background-color: var(--bg);
-            color: #fff;
-            font-family: 'Inter', sans-serif;
-            padding: 80px 8%;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; }
 
-        .sitemap-header {
-            margin-bottom: 80px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 40px;
-        }
-
-        .sitemap-header h1 { font-family: 'Space Grotesk'; font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px; }
-        .sitemap-header p { color: var(--gold); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 5px; }
-
-        /* --- DIRECTORY GRID --- */
-        .directory-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 50px;
-        }
-
-        .dept-column h2 {
-            font-family: 'Space Grotesk';
-            font-size: 0.9rem;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 25px;
-            border-bottom: 1px solid var(--gold);
-            padding-bottom: 10px;
-            display: inline-block;
-        }
-
-        .dept-links { list-style: none; }
-        .dept-links li { margin-bottom: 15px; }
-
-        .dept-links a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: 0.3s;
+        /* --- APEX NAVIGATION: SCALE ENHANCED --- */
+        nav {
+            position: sticky; top: 0; width: 100%;
+            padding: 40px 5% 20px;
             display: flex;
+            flex-direction: column; 
             align-items: center;
-            gap: 10px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
         }
 
-        .dept-links a::before {
-            content: "→";
-            color: var(--gold);
-            font-size: 0.7rem;
-            opacity: 0.5;
+        .brand-container {
+            margin-bottom: 25px; 
         }
 
-        .dept-links a:hover { color: var(--gold); transform: translateX(5px); }
-        .dept-links span { display: block; font-size: 10px; color: var(--text-dim); text-transform: uppercase; margin-top: 2px; }
+        /* LOGO SCALED 3X */
+        .master-logo {
+            height: 135px; 
+            width: auto;
+            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4));
+        }
 
-        /* --- REPOSITORY STAMP --- */
-        .repo-stamp {
-            margin-top: 100px;
-            padding: 40px;
+        .nav-links { display: flex; gap: 35px; }
+        .nav-links a { 
+            text-decoration: none; color: #666; 
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase; 
+            letter-spacing: 2px; transition: 0.4s;
+        }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* --- DIRECTORY CONTENT --- */
+        main { padding: 80px 10%; }
+        
+        .directory-header { 
+            border-bottom: 1px solid var(--border); 
+            padding-bottom: 30px; 
+            margin-bottom: 60px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .directory-header h1 { font-family: 'Syncopate'; font-size: 1.5rem; letter-spacing: 6px; text-transform: uppercase; }
+        .repo-id { font-family: 'Space Mono'; font-size: 0.7rem; color: var(--gold); }
+
+        .sitemap-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 60px; 
+        }
+
+        .directory-column h2 { 
+            font-family: 'Syncopate'; 
+            font-size: 0.7rem; 
+            color: var(--gold); 
+            margin-bottom: 30px; 
+            letter-spacing: 3px; 
+            border-left: 2px solid var(--gold);
+            padding-left: 15px;
+        }
+
+        .link-list { list-style: none; }
+        .link-list li { margin-bottom: 15px; }
+        .link-list a { 
+            text-decoration: none; 
+            color: #888; 
+            font-size: 0.85rem; 
+            transition: 0.3s;
+            font-family: 'Inter';
+            font-weight: 300;
+        }
+        .link-list a:hover { color: #fff; padding-left: 10px; }
+
+        /* --- FOOTER STATUS & LOGO --- */
+        footer {
+            padding: 40px 10%;
             background: #000;
-            border: 1px solid var(--border);
-            text-align: center;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 100px;
         }
 
-        .repo-stamp code { font-family: 'Space Grotesk'; color: var(--text-dim); letter-spacing: 1px; }
+        .footer-left { display: flex; align-items: center; gap: 20px; }
+        .footer-logo { height: 30px; width: auto; opacity: 0.4; filter: grayscale(1); }
 
     </style>
 </head>
 <body>
 
-    <header class="sitemap-header">
-        <p>Administrative Control</p>
-        <h1>Master Network Directory</h1>
-    </header>
+    <nav>
+        <div class="brand-container">
+            <img src="logo.png" alt="SKRMG" class="master-logo">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Identity</a>
+            <a href="portal.html">Exchange</a>
+            <a href="dashboard.html">Intelligence</a>
+            <a href="media.html">Media</a>
+            <a href="foundation.html">Foundation</a>
+        </div>
+    </nav>
 
-    <div class="directory-grid">
-        
-        <div class="dept-column">
-            <h2>Public & Brand</h2>
-            <ul class="dept-links">
-                <li><a href="index.html">Global Hub<span>Cinematic Landing & Main Slideshow</span></a></li>
-                <li><a href="newsroom.html">Global Newsroom<span>Official Press Releases & Communications</span></a></li>
-                <li><a href="legal.html">Legal Sovereignty<span>IP Enforcement & Master Rights Ledger</span></a></li>
-            </ul>
+    <main>
+        <div class="directory-header">
+            <h1>Master Directory</h1>
+            <div class="repo-id">MANIFEST: RH41581781</div>
         </div>
 
-        <div class="dept-column">
-            <h2>Tech & Security</h2>
-            <ul class="dept-links">
-                <li><a href="portal.html">Marketplace<span>Product Registration & Tiered Entry</span></a></li>
-                <li><a href="whitepaper.html">White Paper<span>Technical Specs & RH41581781 Protocol</span></a></li>
-                <li><a href="network.html">Network Status<span>Global Node Topology & Uptime Tracking</span></a></li>
-            </ul>
+        <div class="sitemap-grid">
+            <div class="directory-column">
+                <h2>CORE ECOSYSTEM</h2>
+                <ul class="link-list">
+                    <li><a href="index.html">01. Main Identity</a></li>
+                    <li><a href="portal.html">02. Asset Exchange</a></li>
+                    <li><a href="dashboard.html">03. Intelligence Terminal</a></li>
+                    <li><a href="whitepaper.html">04. Technical Specs</a></li>
+                </ul>
+            </div>
+
+            <div class="directory-column">
+                <h2>OPERATIONS</h2>
+                <ul class="link-list">
+                    <li><a href="media.html">05. Media Slate</a></li>
+                    <li><a href="command.html">06. Global Command</a></li>
+                    <li><a href="capital.html">07. Capital Desk</a></li>
+                    <li><a href="academy.html">08. Artist Academy</a></li>
+                </ul>
+            </div>
+
+            <div class="directory-column">
+                <h2>GOVERNANCE</h2>
+                <ul class="link-list">
+                    <li><a href="foundation.html">09. Foundation</a></li>
+                    <li><a href="ethics.html">10. Neural Ethics</a></li>
+                    <li><a href="legal.html">11. Trust Framework</a></li>
+                    <li><a href="contact.html">12. Corporate Inquiries</a></li>
+                </ul>
+            </div>
         </div>
+    </main>
 
-        <div class="dept-column">
-            <h2>Media & Production</h2>
-            <ul class="dept-links">
-                <li><a href="media.html">Media Gallery<span>Film Slates & Talent Rosters</span></a></li>
-                <li><a href="studio.html">REALM VFX Studio<span>Remote Rendering & Special Effects Interface</span></a></li>
-                <li><a href="vault.html">Asset Vault<span>Artist Portal & NAS-4 License Management</span></a></li>
-            </ul>
+    <footer>
+        <div class="footer-left">
+            <img src="logo.png" alt="SKRMG" class="footer-logo">
+            <div style="font-size: 0.6rem; color: #333; letter-spacing: 2px;">SKRMG GLOBAL INDEX // ALL NODES SECURE</div>
         </div>
-
-        <div class="dept-column">
-            <h2>Governance</h2>
-            <ul class="dept-links">
-                <li><a href="foundation.html">SKRMG Foundation<span>Community Grants & G.R. Initiatives</span></a></li>
-                <li><a href="dashboard.html">Investor Dashboard<span>ROI Metrics & Live Repository Logs</span></a></li>
-                <li><a href="deck.html">Acquisition Deck<span>Executive Summary for Series-A Funding</span></a></li>
-                <li><a href="academy.html">Academy HR<span>Talent Recruitment & Vocational Programs</span></a></li>
-            </ul>
-        </div>
-
-    </div>
-
-    <div class="repo-stamp">
-        <code>SYSTEM ARCHITECTURE VERSION 2026.03.13 // END_OF_LINE</code>
-    </div>
+        <div style="font-size: 0.6rem; color: #333;">&copy; 2026 CONGLOMERATE STRUCTURE</div>
+    </footer>
 
 </body>
 </html>
