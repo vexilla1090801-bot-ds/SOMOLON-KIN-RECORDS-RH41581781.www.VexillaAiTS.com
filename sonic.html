@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKRMG Sonic | Frequency Mastering Lab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-orange: #ff5f1f;
+            --bg: #000;
+            --panel: #0a0a0a;
+            --border: #1a1a1a;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            background-color: var(--bg); 
+            color: #fff; 
+            font-family: 'Space Mono', monospace; 
+            overflow: hidden; 
+        }
+
+        /* --- SONIC INTERFACE --- */
+        .sonic-wrapper {
+            height: 100vh;
+            display: grid;
+            grid-template-rows: 80px 1fr 150px;
+            padding: 20px;
+            gap: 10px;
+        }
+
+        .sonic-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--border);
+            padding: 0 30px;
+            background: var(--panel);
+        }
+
+        .sonic-header h1 { font-family: 'Space Grotesk'; font-size: 1.2rem; letter-spacing: 5px; color: var(--neon-orange); }
+
+        /* --- FREQUENCY VISUALIZER --- */
+        .visualizer-area {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            border: 1px solid var(--border);
+            background: linear-gradient(180deg, #000 0%, #080808 100%);
+            padding: 40px;
+            position: relative;
+        }
+
+        .freq-bar {
+            width: 15px;
+            background: var(--neon-orange);
+            box-shadow: 0 0 15px rgba(255, 95, 31, 0.3);
+            animation: bounce 0.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes bounce { 
+            from { height: 20%; opacity: 0.5; } 
+            to { height: 80%; opacity: 1; } 
+        }
+
+        /* --- CONTROL CONSOLE --- */
+        .sonic-controls {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .control-pod {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .control-pod h4 { font-size: 0.6rem; color: #444; margin-bottom: 10px; text-transform: uppercase; }
+        .dial { width: 40px; height: 40px; border: 2px solid var(--neon-orange); border-radius: 50%; margin: 0 auto 10px; position: relative; }
+        .dial::after { content: ''; position: absolute; width: 2px; height: 15px; background: var(--neon-orange); top: 0; left: 50%; transform: translateX(-50%); }
+
+        .btn-master {
+            grid-column: span 4;
+            background: var(--neon-orange);
+            color: #000;
+            border: none;
+            font-family: 'Space Grotesk';
+            font-weight: 900;
+            text-transform: uppercase;
+            cursor: pointer;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            height: 50px;
+        }
+
+        .btn-master:hover { background: #fff; }
+
+    </style>
+</head>
+<body>
+
+    <div class="sonic-wrapper">
+        <header class="sonic-header">
+            <h1>SONIC CALIBRATION</h1>
+            <div style="font-size: 0.7rem;">SMRMG/RH41581781 // AUDIO_CORE</div>
+        </header>
+
+        <main class="visualizer-area">
+            <div class="freq-bar" style="animation-delay: 0.1s; height: 40%;"></div>
+            <div class="freq-bar" style="animation-delay: 0.3s; height: 70%;"></div>
+            <div class="freq-bar" style="animation-delay: 0.2s; height: 50%;"></div>
+            <div class="freq-bar" style="animation-delay: 0.5s; height: 90%;"></div>
+            <div class="freq-bar" style="animation-delay: 0.4s; height: 30%;"></div>
+            <div class="freq-bar" style="animation-delay: 0.6s; height: 60%;"></div>
+            <div class="freq-bar" style="animation-delay: 0.2s; height: 80%;"></div>
+            <div class="freq-bar" style="animation-delay: 0.8s; height: 45%;"></div>
+            
+            <div style="position: absolute; top: 20px; right: 40px; text-align: right;">
+                <p style="font-size: 0.8rem; color: var(--neon-orange);">RH-SIGNAL: PROTECTED</p>
+                <p style="font-size: 0.6rem; color: #333;">LUFS: -14.0 // TRUE PEAK: -1.0dB</p>
+            </div>
+        </main>
+
+        <section class="sonic-controls">
+            <div class="control-pod">
+                <h4>Vocal Clarity</h4>
+                <div class="dial" style="transform: rotate(45deg);"></div>
+                <p style="font-size: 0.5rem;">92%</p>
+            </div>
+            <div class="control-pod">
+                <h4>Sub-Engine</h4>
+                <div class="dial" style="transform: rotate(120deg);"></div>
+                <p style="font-size: 0.5rem;">64%</p>
+            </div>
+            <div class="control-pod">
+                <h4>Vexilla Auth</h4>
+                <div class="dial" style="transform: rotate(180deg);"></div>
+                <p style="font-size: 0.5rem;">ACTIVE</p>
+            </div>
+            <div class="control-pod">
+                <h4>Spatial Width</h4>
+                <div class="dial" style="transform: rotate(90deg);"></div>
+                <p style="font-size: 0.5rem;">OPTIMAL</p>
+            </div>
+            <button class="btn-master">Finalize Master & Export to Vault</button>
+        </section>
+    </div>
+
+</body>
+</html>
