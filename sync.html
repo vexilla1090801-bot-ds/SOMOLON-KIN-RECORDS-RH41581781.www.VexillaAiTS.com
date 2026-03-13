@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKRMG Sync | Neural Calibration Lab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-cyan: #0ff;
+            --deep-space: #050505;
+            --gold: #d4af37;
+            --glass: rgba(0, 255, 255, 0.03);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            background-color: var(--deep-space); 
+            color: #fff; 
+            font-family: 'Inter', sans-serif; 
+            overflow: hidden; 
+        }
+
+        /* --- CALIBRATION INTERFACE --- */
+        .sync-container {
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            padding: 40px;
+            gap: 20px;
+        }
+
+        .side-panel {
+            background: var(--glass);
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .side-panel h2 { font-family: 'Space Grotesk'; font-size: 0.8rem; color: var(--neon-cyan); letter-spacing: 3px; margin-bottom: 20px; }
+
+        /* --- WAVEFORM VISUALIZER --- */
+        .center-stage {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .pulse-core {
+            width: 300px;
+            height: 300px;
+            border: 1px solid var(--neon-cyan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.1);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        .dna-readout {
+            font-family: 'Space Grotesk';
+            font-size: 0.7rem;
+            color: var(--gold);
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        /* --- STAT SLIDERS --- */
+        .metric { margin-bottom: 25px; }
+        .metric label { font-size: 10px; color: #666; display: block; margin-bottom: 5px; text-transform: uppercase; }
+        .slider-bg { width: 100%; height: 2px; background: #222; position: relative; }
+        .slider-fill { height: 100%; background: var(--neon-cyan); width: 70%; box-shadow: 0 0 10px var(--neon-cyan); }
+
+        .btn-sync {
+            margin-top: auto;
+            background: transparent;
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 15px;
+            font-family: 'Space Grotesk';
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-sync:hover { background: var(--neon-cyan); color: #000; }
+
+    </style>
+</head>
+<body>
+
+    <div class="sync-container">
+        
+        <aside class="side-panel">
+            <h2>Artist Ingest</h2>
+            <div class="metric">
+                <label>Vocal Timbre Accuracy</label>
+                <div class="slider-bg"><div class="slider-fill" style="width: 94%;"></div></div>
+            </div>
+            <div class="metric">
+                <label>Emotional Resonance</label>
+                <div class="slider-bg"><div class="slider-fill" style="width: 82%;"></div></div>
+            </div>
+            <div class="metric">
+                <label>Rhythmic Variance</label>
+                <div class="slider-bg"><div class="slider-fill" style="width: 65%;"></div></div>
+            </div>
+            <p style="font-size: 0.7rem; color: #444; margin-top: 20px;">
+                Syncing: **DJ M3** <br>
+                Session: 2026-ALPHA-SYNC
+            </p>
+        </aside>
+
+        <main class="center-stage">
+            <div class="pulse-core">
+                <div style="width: 80%; height: 80%; border: 1px dashed rgba(255,255,255,0.2); border-radius: 50%;"></div>
+            </div>
+            <div class="dna-readout">
+                BIOMETRIC SIGNATURE VERIFIED: RH41581781 <br>
+                <span style="color: #fff; font-size: 1.5rem;">NEURAL SYNC ACTIVE</span>
+            </div>
+        </main>
+
+        <aside class="side-panel">
+            <h2>Vexilla Output</h2>
+            <div class="metric">
+                <label>NAS-4 Integrity</label>
+                <div class="slider-bg"><div class="slider-fill" style="width: 100%;"></div></div>
+            </div>
+            <div class="metric">
+                <label>Synthetic Cohesion</label>
+                <div class="slider-bg"><div class="slider-fill" style="width: 89%;"></div></div>
+            </div>
+            <div class="metric">
+                <label>Latent Space Utilization</label>
+                <div class="slider-bg"><div class="slider-fill" style="width: 74%;"></div></div>
+            </div>
+            <button class="btn-sync">Commit to Ledger</button>
+        </aside>
+
+    </div>
+
+    <footer style="position: absolute; bottom: 20px; width: 100%; text-align: center; color: #222; font-size: 0.6rem; letter-spacing: 5px;">
+        SKRMG NEURAL LABS // PERFORMANCE SYNC DIVISION // RH41581781
+    </footer>
+
+</body>
+</html>
