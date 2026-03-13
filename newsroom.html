@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKRMG Global Newsroom | Official Communiqués</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --bg: #000;
+            --paper: #111;
+            --accent-red: #ff3e3e;
+            --text-dim: #666;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg); color: #fff; font-family: 'Inter', sans-serif; }
+
+        /* --- GLOBAL TICKER --- */
+        .ticker-wrap {
+            background: var(--gold);
+            color: #000;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            font-weight: 900;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .ticker { display: inline-block; animation: scroll 30s linear infinite; }
+        @keyframes scroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+        /* --- LAYOUT --- */
+        .news-container { display: grid; grid-template-columns: 1fr 350px; gap: 40px; padding: 60px 8%; }
+
+        /* --- MAIN FEED --- */
+        .headline-section h1 { font-family: 'Space Grotesk'; font-size: 3.5rem; text-transform: uppercase; margin-bottom: 40px; border-bottom: 8px solid var(--gold); padding-bottom: 10px; }
+        
+        .press-release { background: var(--paper); border: 1px solid #222; padding: 40px; margin-bottom: 30px; }
+        .release-date { color: var(--gold); font-family: 'Space Grotesk'; font-weight: 700; font-size: 0.8rem; margin-bottom: 10px; display: block; }
+        .press-release h2 { font-family: 'Space Grotesk'; margin-bottom: 15px; }
+        .press-release p { color: #ccc; line-height: 1.8; margin-bottom: 20px; font-size: 0.95rem; }
+
+        /* --- SIDEBAR: LIVE FEEDS --- */
+        .live-feed-sidebar { background: #080808; border: 1px solid #1a1a1a; padding: 30px; height: fit-content; }
+        .feed-title { display: flex; align-items: center; gap: 10px; color: var(--accent-red); font-weight: 900; font-size: 0.7rem; margin-bottom: 20px; }
+        .dot { width: 8px; height: 8px; background: var(--accent-red); border-radius: 50%; animation: blink 1s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        .wire-item { border-bottom: 1px solid #222; padding: 15px 0; font-size: 0.8rem; }
+        .wire-item span { color: var(--gold); font-family: 'Space Grotesk'; display: block; margin-bottom: 5px; }
+
+        /* --- BUTTONS --- */
+        .btn-media-kit { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 15px 30px; font-weight: 900; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
+        .btn-media-kit:hover { background: var(--gold); color: #000; }
+
+    </style>
+</head>
+<body>
+
+    <div class="ticker-wrap">
+        <div class="ticker">
+            SKRMG SECURES FEDERAL R&D GRANT FOR NEURO-TECH ... VEXILLA AiTS HITS 10M VERIFICATIONS ... REALM PICTURES ANNOUNCES "MOTHER'S MERCY" PRODUCTION WRAP ... DJ M3 TO HEADLINE VIRTUAL SUMMIT ... 
+        </div>
+    </div>
+
+    <div class="news-container">
+        <main>
+            <section class="headline-section">
+                <h1>Global Newsroom</h1>
+            </section>
+
+            <article class="press-release">
+                <span class="release-date">MARCH 13, 2026</span>
+                <h2>SKRMG Institutionalizes Vexilla AiTS Protocol for State-Level Media Distribution</h2>
+                <p>Today, Solomon Kin Records Media Group (SKRMG) announced the finalized deployment of the RH41581781 protocol. This marks a historic milestone in digital identity, allowing government agencies and media houses to verify synthetic content in real-time. "We are setting the standard for the next century of media," says the SKRMG Executive Board.</p>
+                <button class="btn-media-kit">Download Full Press Kit</button>
+            </article>
+
+            <article class="press-release">
+                <span class="release-date">FEBRUARY 28, 2026</span>
+                <h2>REALM Pictures Unveils Neural-VFX Patent</h2>
+                <p>The special effects division of SKRMG has successfully patented a new rendering technique that allows for the ethical creation of 'Cast Ai Stars' without violating biometric sovereignty. This technology will be first seen in the upcoming treatment 'Mother's Mercy'.</p>
+                <button class="btn-media-kit" style="border-color: #444; color: #888;">Archived Release</button>
+            </article>
+        </main>
+
+        <aside class="live-feed-sidebar">
+            <div class="feed-title">
+                <div class="dot"></div> LIVE WIRE: GLOBAL REPOSITORY LOGS
+            </div>
+
+            <div class="wire-item">
+                <span>12:01:22 AM</span>
+                SECURE_UPSTREAM: Vexilla Satellite Link established.
+            </div>
+            <div class="wire-item">
+                <span>11:45:00 PM</span>
+                PARTNERSHIP: Dept. of Arts & Culture synchronization complete.
+            </div>
+            <div class="wire-item">
+                <span>11:30:12 PM</span>
+                DISTRIBUTION: "Project Alpha" treatment delivered to EU Market.
+            </div>
+            <div class="wire-item">
+                <span>10:15:44 PM</span>
+                ALERT: Unauthorized AI scraping attempt blocked by NAS-4.
+            </div>
+
+            <div style="margin-top: 30px; text-align: center;">
+                <p style="font-size: 10px; color: #444; margin-bottom: 20px;">For media inquiries: <br> press@VexillaAiTS.com</p>
+                <img src="SKRMG.png" alt="SKRMG" style="width: 100px; opacity: 0.3;">
+            </div>
+        </aside>
+    </div>
+
+    <footer style="padding: 40px 8%; text-align: center; font-size: 10px; color: #333; border-top: 1px solid #111;">
+        SKRMG GLOBAL COMMUNICATIONS DIVISION | REPOSITORY ID: SMRMG/RH41581781
+    </footer>
+
+</body>
+</html>
