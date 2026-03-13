@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKRMG | Executive Acquisition Deck</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --dark: #000;
+            --slide-bg: #0a0a0a;
+            --border: rgba(212, 175, 55, 0.3);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            background-color: var(--dark); 
+            color: #fff; 
+            font-family: 'Inter', sans-serif; 
+            overflow: hidden; /* Deck style: no scroll */
+        }
+
+        /* --- DECK NAVIGATION --- */
+        .deck-wrapper {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+            background: radial-gradient(circle at center, #111 0%, #000 100%);
+        }
+
+        .slide-container {
+            width: 100%;
+            max-width: 1200px;
+            height: 700px;
+            background: var(--slide-bg);
+            border: 1px solid var(--border);
+            position: relative;
+            padding: 80px;
+            display: none; /* Controlled by JS */
+            box-shadow: 0 0 100px rgba(212, 175, 55, 0.1);
+        }
+
+        .slide-container.active { display: block; animation: fadeIn 0.8s ease; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- CONTENT STYLING --- */
+        .slide-header { font-family: 'Space Grotesk'; font-size: 0.8rem; color: var(--gold); letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; }
+        .slide-title { font-family: 'Space Grotesk'; font-size: 3.5rem; line-height: 1; text-transform: uppercase; margin-bottom: 40px; }
+        
+        .grid-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 50px; }
+        .stat-item h4 { font-size: 0.7rem; color: #666; text-transform: uppercase; margin-bottom: 10px; }
+        .stat-item p { font-size: 2.5rem; font-family: 'Space Grotesk'; color: var(--gold); font-weight: 700; }
+
+        /* --- CONTROLS --- */
+        .deck-controls {
+            position: fixed;
+            bottom: 40px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-deck {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 15px 30px;
+            font-weight: 900;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+        }
+
+        .btn-deck:hover { background: var(--gold); color: #000; }
+
+        .slide-number { position: absolute; bottom: 40px; right: 40px; color: #333; font-family: 'Space Grotesk'; font-size: 3rem; }
+    </style>
+</head>
+<body>
+
+    <div class="deck-wrapper">
+
+        <div class="slide-container active" id="slide1">
+            <div class="slide-header">Vision Statement // 2026-2031</div>
+            <h2 class="slide-title">The Future of <br><span style="color:var(--gold)">Biometric Media</span>.</h2>
+            <p style="font-size: 1.2rem; color: #888; max-width: 600px;">SKRMG is the first conglomerate to unify high-definition movie treatments with a sovereign trust protocol. We don't just create content; we secure the identity of the creator.</p>
+            <div class="slide-number">01</div>
+        </div>
+
+        <div class="slide-container" id="slide2">
+            <div class="slide-header">Market Analysis // Vexilla Adoption</div>
+            <h2 class="slide-title">Institutional <br>Standardization.</h2>
+            <div class="grid-stats">
+                <div class="stat-item">
+                    <h4>Current Valuation</h4>
+                    <p>$12.5M</p>
+                </div>
+                <div class="stat-item">
+                    <h4>Gov Contracts</h4>
+                    <p>04</p>
+                </div>
+                <div class="stat-item">
+                    <h4>Active IP Slates</h4>
+                    <p>18</p>
+                </div>
+            </div>
+            <div class="slide-number">02</div>
+        </div>
+
+        <div class="slide-container" id="slide3">
+            <div class="slide-header">R&D Core // NAS-4 Encryption</div>
+            <h2 class="slide-title">Defense Grade <br>Entertainment.</h2>
+            <p style="color: #888; margin-bottom: 30px;">Our proprietary NAS-4 Neural Shielding ensures that every piece of media produced by SKRMG is immune to unauthorized AI ingestion. This creates a high-scarcity, high-value asset class for investors.</p>
+            <img src="picture4.jpg" style="width: 100%; height: 200px; object-fit: cover; opacity: 0.5; border: 1px solid #222;" alt="Technology">
+            <div class="slide-number">03</div>
+        </div>
+
+        <div class="slide-container" id="slide4">
+            <div class="slide-header">Acquisition // Partnership</div>
+            <h2 class="slide-title">Initialize <br>Partnership.</h2>
+            <p style="color: var(--gold); font-weight: 700; margin-bottom: 20px;">Current Opportunity: Series A Funding Expansion</p>
+            <p style="color: #888; max-width: 600px;">We are seeking strategic partners to scale the Vexilla AiTS protocol into the global streaming market. Join the conglomerate that defines the intersection of Art, Tech, and Security.</p>
+            <div style="margin-top: 40px;">
+                <p style="font-family: 'Space Grotesk'; font-size: 0.8rem;">CONTACT: treasury@VexillaAiTS.com</p>
+            </div>
+            <div class="slide-number">04</div>
+        </div>
+
+        <div class="deck-controls">
+            <button class="btn-deck" onclick="prevSlide()">Previous</button>
+            <button class="btn-deck" onclick="nextSlide()">Next Slide</button>
+        </div>
+
+    </div>
+
+    <script>
+        let current = 1;
+        const total = 4;
+
+        function showSlide(n) {
+            document.querySelectorAll('.slide-container').forEach(s => s.classList.remove('active'));
+            document.getElementById('slide' + n).classList.add('active');
+        }
+
+        function nextSlide() {
+            current = current < total ? current + 1 : 1;
+            showSlide(current);
+        }
+
+        function prevSlide() {
+            current = current > 1 ? current - 1 : total;
+            showSlide(current);
+        }
+    </script>
+
+</body>
+</html>
