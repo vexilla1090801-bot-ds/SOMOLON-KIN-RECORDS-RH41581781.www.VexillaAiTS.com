@@ -3,217 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SKRMG | VEXILLA AiTS CONGLOMERATE</title>
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;700;900&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>SKRMG | VEXILLA AiTS MASTER PORTAL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@200;400;700;900&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #d4af37;
-            --gold-glow: rgba(212, 175, 55, 0.4);
-            --bg: #050505;
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f4ecd8 50%, #b8860b 100%);
+            --bg: #000000;
             --surface: #0a0a0a;
+            --border: rgba(212, 175, 55, 0.2);
             --text-main: #ffffff;
-            --text-dim: #888888;
-            --accent-red: #ff3e3e; /* For alert statuses */
+            --text-dim: #666666;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; cursor: crosshair; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             background-color: var(--bg);
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            letter-spacing: -0.02em;
+            line-height: 1.5;
         }
 
-        /* --- BACKGROUND LAYER: AMBIENT CINEMATIC --- */
-        .ambient-bg {
+        /* --- GLOBAL OVERLAY: THE GRID --- */
+        body::before {
+            content: "";
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, #111 0%, #000 100%);
+            background-image: radial-gradient(var(--border) 1px, transparent 1px);
+            background-size: 40px 40px;
             z-index: -1;
+            opacity: 0.3;
         }
 
-        /* --- NAVIGATION: ELITE MINIMALISM --- */
+        /* --- NAVIGATION: ELITE COMMAND --- */
         nav {
             position: fixed;
             top: 0; width: 100%;
-            padding: 30px 5%;
+            padding: 25px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
         }
 
-        .brand-box { display: flex; align-items: center; gap: 15px; }
-        .logo-symbol { 
-            width: 30px; height: 30px; 
-            background: var(--gold); 
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); 
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
-        .brand-name { font-family: 'Syncopate', sans-serif; font-weight: 700; font-size: 1.2rem; letter-spacing: 5px; }
 
-        .nav-links { display: flex; gap: 40px; }
+        /* Placeholder for your actual Logo File */
+        .master-logo {
+            height: 45px;
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+        }
+
+        .nav-links { display: flex; gap: 35px; }
         .nav-links a { 
             text-decoration: none; color: var(--text-dim); 
-            font-size: 0.7rem; font-weight: 700; text-transform: uppercase; 
-            letter-spacing: 2px; transition: 0.3s;
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase; 
+            letter-spacing: 2px; transition: 0.4s;
         }
-        .nav-links a:hover { color: var(--gold); }
+        .nav-links a:hover { color: var(--gold); letter-spacing: 4px; }
 
-        /* --- HERO SECTION: THE SNAPSHOT --- */
+        /* --- HERO: THE SOVEREIGN VIEW --- */
         .hero {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 0 10%;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
             position: relative;
         }
 
-        .hero-tag { 
-            color: var(--gold); font-family: 'Space Grotesk'; 
-            font-size: 0.8rem; font-weight: 700; text-transform: uppercase; 
-            letter-spacing: 8px; margin-bottom: 20px;
+        .hero-pre-title {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 0.8rem;
+            color: var(--gold);
+            letter-spacing: 12px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            opacity: 0.8;
         }
 
         .hero h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(3rem, 10vw, 8rem);
+            font-size: clamp(3rem, 8vw, 7rem);
             font-weight: 700;
-            line-height: 0.9;
+            line-height: 0.85;
             text-transform: uppercase;
-            margin-bottom: 30px;
-            background: linear-gradient(to right, #fff 40%, var(--gold) 100%);
+            margin-bottom: 40px;
+            background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero-meta {
-            display: flex;
-            gap: 50px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 30px;
-            max-width: 800px;
+        .hero-description {
+            max-width: 650px;
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-dim);
+            margin-bottom: 50px;
+            letter-spacing: 1px;
         }
 
-        .meta-item h3 { font-size: 0.6rem; color: var(--text-dim); text-transform: uppercase; margin-bottom: 5px; letter-spacing: 2px; }
-        .meta-item p { font-family: 'Space Grotesk'; font-size: 1.1rem; font-weight: 500; }
-
-        /* --- INTERACTIVE PORTAL BUTTON --- */
-        .cta-container { margin-top: 50px; }
-        .btn-prime {
-            background: var(--gold);
+        /* --- BUTTONS: POWER & ACTION --- */
+        .cta-group { display: flex; gap: 20px; }
+        
+        .btn-gold {
+            background: var(--gold-gradient);
             color: #000;
-            padding: 20px 45px;
-            font-weight: 900;
+            padding: 18px 45px;
+            font-family: 'Syncopate', sans-serif;
+            font-weight: 700;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 3px;
             border: none;
-            transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            position: relative;
-        }
-        .btn-prime:hover { 
-            transform: scale(1.05); 
-            box-shadow: 0 0 40px var(--gold-glow);
-        }
-
-        /* --- DATA STRIP: LIVE STATUS --- */
-        .data-strip {
-            position: absolute;
-            bottom: 40px;
-            width: 80%;
-            display: flex;
-            justify-content: space-between;
-            font-size: 10px;
-            font-family: 'Space Grotesk';
-            color: #444;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* --- FLOATING ELEMENTS --- */
-        .snapshot-preview {
-            position: absolute;
-            right: 10%;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 400px;
-            height: 550px;
-            background: url('https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=2070') center/cover;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 20px 20px 60px rgba(0,0,0,0.5);
+            cursor: pointer;
             transition: 0.5s;
         }
-        .snapshot-preview:hover { transform: translateY(-52%) scale(1.02); border-color: var(--gold); }
-        .snapshot-label {
-            position: absolute;
-            bottom: -30px; right: 0;
-            color: var(--gold); font-size: 10px;
-            letter-spacing: 3px;
+
+        .btn-gold:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(212, 175, 55, 0.5); }
+
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            padding: 18px 45px;
+            font-family: 'Syncopate', sans-serif;
+            font-weight: 700;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: 0.5s;
         }
+        .btn-outline:hover { background: #fff; color: #000; }
+
+        /* --- STATUS MONITOR: REPOSITORY RH41581781 --- */
+        .status-footer {
+            position: absolute;
+            bottom: 40px;
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+        }
+
+        .status-node { font-family: 'Space Grotesk'; font-size: 0.65rem; letter-spacing: 3px; color: #333; }
+        .status-node span { color: var(--gold); margin-left: 10px; }
 
     </style>
 </head>
 <body>
 
-    <div class="ambient-bg"></div>
-
     <nav>
-        <div class="brand-box">
-            <div class="Skrmg101.png"></div>
-            <div class="brand-name">SKRMG</div>
+        <div class="brand-container">
+            <img src="logo.png" alt="SKRMG" class="master-logo">
         </div>
         <div class="nav-links">
-            <a href="portal.html">Portal</a>
+            <a href="portal.html">Marketplace</a>
             <a href="media.html">Media</a>
             <a href="foundation.html">Foundation</a>
-            <a href="command.html">Command</a>
+            <a href="capital.html">Investors</a>
             <a href="sitemap.html">Index</a>
         </div>
     </nav>
 
     <main class="hero">
-        <p class="hero-tag">Sovereign Artificial Intelligence & Media</p>
-        <h1>Vexilla<br>Trust</h1>
+        <div class="hero-pre-title">Vexilla Trust Protocol</div>
+        <h1>Powering the<br>Global Image</h1>
         
-        <div class="hero-meta">
-            <div class="meta-item">
-                <h3>Global Registry</h3>
-                <p>RH41581781</p>
-            </div>
-            <div class="meta-item">
-                <h3>Primary Core</h3>
-                <p>Biometric Auth</p>
-            </div>
-            <div class="meta-item">
-                <h3>Division</h3>
-                <p>Public Relations</p>
-            </div>
+        <p class="hero-description">
+            The definitive architecture for high-frequency media, biometric IP sovereignty, 
+            and the future of the entertainment conglomerate.
+        </p>
+
+        <div class="cta-group">
+            <button class="btn-gold" onclick="location.href='portal.html'">Open Repository</button>
+            <button class="btn-outline" onclick="location.href='whitepaper.html'">Technical Specs</button>
         </div>
 
-        <div class="cta-container">
-            <button class="btn-prime" onclick="location.href='portal.html'">Enter Marketplace</button>
-        </div>
-
-        <div class="snapshot-preview">
-            <div class="snapshot-label">REF: VISUAL_STIM_01 // 2026</div>
-        </div>
-
-        <div class="data-strip">
-            <div>System Integrity: 99.98%</div>
-            <div>Active Grants: $12.4M</div>
-            <div>Vexilla Status: Online</div>
+        <div class="status-footer">
+            <div class="status-node">SYSTEM_ID:<span>RH41581781</span></div>
+            <div class="status-node">GLOBAL_NODES:<span>ACTIVE</span></div>
+            <div class="status-node">VALUATION:<span>$425M EST.</span></div>
         </div>
     </main>
 
-    <footer style="position: absolute; right: 5%; bottom: 40px; writing-mode: vertical-rl; font-size: 9px; color: #222; letter-spacing: 2px;">
-        SOLOMON KIN RECORDS MEDIA GROUP &copy; ALL RIGHTS RESERVED
-    </footer>
-
 </body>
 </html>
-
