@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SKRMG | Vexilla AI Trust & Security Conglomerate</title>
-    <meta name="description" content="SMRMG/RH41581781 - Vexilla AiTS Protocol. Digital Identity, IP Verification, and Media Production.">
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
     
     <style>
@@ -15,21 +13,14 @@
             --card-bg: #0a0a0a;
             --glass: rgba(255, 255, 255, 0.03);
             --accent-blue: #0066ff;
-            --accent-green: #39ff14;
             --text-main: #ffffff;
             --text-dim: #888;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            background-color: var(--dark-bg);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+        body { background-color: var(--dark-bg); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; }
 
-        /* --- UTILITY & GOV BAR --- */
+        /* --- UTILITY BAR --- */
         .utility-bar {
             background: #000;
             padding: 8px 8%;
@@ -42,9 +33,9 @@
         }
         .repo-id { font-family: 'Space Grotesk', monospace; color: var(--gold); }
 
-        /* --- MAIN NAVIGATION --- */
+        /* --- NAVIGATION --- */
         nav {
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(20px);
             padding: 20px 8%;
             display: flex;
@@ -55,127 +46,66 @@
             z-index: 10000;
             border-bottom: 1px solid var(--glass);
         }
-
-        .brand-logo { 
-            font-weight: 900; 
-            letter-spacing: 8px; 
-            font-size: 1.6rem; 
-            color: var(--gold); 
-            text-decoration: none; 
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .nav-links { display: flex; gap: 30px; }
-        .nav-links a { 
-            color: var(--text-main); 
-            text-decoration: none; 
-            text-transform: uppercase; 
-            font-size: 0.75rem; 
-            font-weight: 700; 
-            letter-spacing: 1px;
-        }
+        .brand-logo { font-weight: 900; letter-spacing: 8px; font-size: 1.6rem; color: var(--gold); text-decoration: none; font-family: 'Space Grotesk'; }
+        .nav-links a { color: var(--text-main); text-decoration: none; text-transform: uppercase; font-size: 0.75rem; font-weight: 700; margin-left: 25px; transition: 0.3s; }
         .nav-links a:hover { color: var(--gold); }
 
-        .auth-tools { display: flex; align-items: center; gap: 20px; }
-        .btn-login { color: #fff; text-decoration: none; font-size: 0.75rem; font-weight: 700; }
-        .btn-register { 
-            background: var(--gold); 
-            color: #000; 
-            padding: 10px 20px; 
-            text-decoration: none; 
-            font-weight: 900; 
-            font-size: 0.7rem; 
-            text-transform: uppercase;
-            border-radius: 2px;
+        /* --- DYNAMIC SLIDESHOW HERO --- */
+        .hero-slider {
+            width: 100%;
+            height: 70vh;
+            position: relative;
+            overflow: hidden;
+            background: #000;
         }
 
-        /* --- HERO SECTION --- */
-        header {
-            height: 80vh;
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: radial-gradient(circle at center, #111 0%, #000 100%);
-            position: relative;
         }
 
-        .hero-logo { width: clamp(300px, 40vw, 550px); margin-bottom: 20px; }
-        .hero-tag { font-family: 'Space Grotesk'; font-size: 1.2rem; letter-spacing: 15px; color: var(--gold); text-transform: uppercase; }
-        .vexilla-tag { margin-top: 20px; font-size: 0.8rem; color: var(--text-dim); letter-spacing: 2px; }
+        .slide.active { opacity: 1; }
 
-        /* --- MARKETPLACE & SERVICES --- */
+        /* Slide Overlays */
+        .slide-content {
+            z-index: 2;
+            background: rgba(0,0,0,0.4);
+            padding: 40px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .slide h2 { font-family: 'Space Grotesk'; font-size: 4rem; text-transform: uppercase; letter-spacing: -2px; line-height: 1; }
+        .slide p { color: var(--gold); letter-spacing: 10px; text-transform: uppercase; font-size: 1rem; margin-top: 10px; }
+
+        /* --- MARKETPLACE --- */
         .section { padding: 100px 8%; }
         .section-title { font-size: 2.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 50px; border-left: 6px solid var(--gold); padding-left: 20px; }
 
-        .marketplace-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+        .marketplace-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .product-card { background: var(--card-bg); border: 1px solid #1a1a1a; padding: 40px; transition: 0.4s; }
+        .product-card:hover { border-color: var(--gold); transform: translateY(-10px); }
+        .product-card h3 { color: var(--gold); margin-bottom: 15px; text-transform: uppercase; }
+        .price-tag { font-size: 1.8rem; font-weight: 900; display: block; margin: 20px 0; font-family: 'Space Grotesk'; }
 
-        .product-card {
-            background: var(--card-bg);
-            border: 1px solid #1a1a1a;
-            padding: 40px;
-            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-        }
-
-        .product-card:hover { border-color: var(--gold); transform: translateY(-10px); background: #0f0f0f; }
-        .product-card h3 { color: var(--gold); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
-        .product-card p { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 25px; height: 60px; }
-        
-        .price-tag { font-size: 1.8rem; font-weight: 900; display: block; margin-bottom: 20px; font-family: 'Space Grotesk'; }
-        
-        .buy-btn {
-            width: 100%;
-            padding: 15px;
-            background: transparent;
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            font-weight: 900;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+        .buy-btn { width: 100%; padding: 15px; background: transparent; border: 1px solid var(--gold); color: var(--gold); font-weight: 900; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
         .buy-btn:hover { background: var(--gold); color: #000; }
 
-        /* --- REPOSITORY & GOV RELATIONS --- */
-        .gov-strip {
-            background: #001529;
-            padding: 60px 8%;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid var(--accent-blue);
-        }
+        /* --- REGISTRATION SECTION --- */
+        .auth-section { background: #050505; border-top: 1px solid #111; padding: 80px 8%; text-align: center; }
+        .btn-large { background: var(--gold); color: #000; padding: 20px 50px; text-decoration: none; font-weight: 900; display: inline-block; text-transform: uppercase; letter-spacing: 2px; }
 
-        .gov-info h2 { font-family: 'Space Grotesk'; font-size: 1.8rem; margin-bottom: 10px; }
-        .gov-info p { color: #8cb4ff; max-width: 600px; }
-
-        .verification-badge {
-            background: rgba(0, 102, 255, 0.2);
-            border: 1px solid var(--accent-blue);
-            padding: 20px;
-            text-align: center;
-        }
-
-        /* --- SHOPPING CART --- */
-        .cart-trigger { position: relative; cursor: pointer; font-size: 1.2rem; }
-        .cart-badge { 
-            position: absolute; top: -10px; right: -10px; 
-            background: var(--accent-green); color: #000; 
-            font-size: 10px; font-weight: 900; 
-            padding: 2px 6px; border-radius: 50%; 
-        }
-
-        footer { padding: 80px 8%; border-top: 1px solid #111; text-align: center; }
-        .footer-links { margin-bottom: 30px; display: flex; justify-content: center; gap: 40px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; }
-        .footer-links a { color: var(--text-dim); text-decoration: none; }
-
+        footer { padding: 60px 8%; text-align: center; border-top: 1px solid #111; color: #444; font-size: 0.7rem; letter-spacing: 2px; }
     </style>
 </head>
 <body>
@@ -189,84 +119,85 @@
         <a href="#" class="brand-logo">SKRMG</a>
         <div class="nav-links">
             <a href="#media">Media</a>
-            <a href="#vexilla">Vexilla AiTS</a>
-            <a href="#foundation">Foundation</a>
+            <a href="#vexilla">Vexilla Marketplace</a>
             <a href="#gov">Government</a>
-        </div>
-        <div class="auth-tools">
-            <a href="#" class="btn-login">SIGN IN</a>
-            <a href="#" class="btn-register">REGISTER</a>
-            <div class="cart-trigger">
-                🛒 <span class="cart-badge">0</span>
-            </div>
+            <a href="#register">Register</a>
         </div>
     </nav>
 
-    <header>
-        <img src="SKRMG.png" alt="SKRMG" class="hero-logo">
-        <div class="hero-tag">Media Group Conglomerate</div>
-        <div class="vexilla-tag">Powered by Vexilla AI Trust & Security Protocol</div>
-    </header>
+    <div class="hero-slider">
+        <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('picture1.jpg');">
+            <div class="slide-content">
+                <h2>MEDIA GROUP</h2>
+                <p>Conglomerate Excellence</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('picture2.jpg');">
+            <div class="slide-content">
+                <h2>VEXILLA AiTS</h2>
+                <p>Identity Trust Protocol</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('picture3.jpg');">
+            <div class="slide-content">
+                <h2>MOTHER'S MERCY</h2>
+                <p>REALM Pictures IP Slate</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('picture4.jpg');">
+            <div class="slide-content">
+                <h2>NEURAL SHIELD</h2>
+                <p>Safeguarding Human Consciousness</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('picture5.jpg');">
+            <div class="slide-content">
+                <h2>FOUNDATION</h2>
+                <p>Engaging Global Communities</p>
+            </div>
+        </div>
+    </div>
 
     <section id="vexilla" class="section">
-        <h2 class="section-title">Identity & Trust Marketplace</h2>
+        <h2 class="section-title">Vexilla Marketplace</h2>
         <div class="marketplace-grid">
-            
             <div class="product-card">
-                <h3>Vexilla Verified Creator ID</h3>
-                <p>Digital identity certification for artists and producers. Protection against unauthorized AI replication.</p>
+                <h3>Vexilla Verified ID</h3>
+                <p>Digital identity certification for global media creators.</p>
                 <span class="price-tag">$199.00</span>
-                <button class="buy-btn">Add to Repository</button>
+                <button class="buy-btn">Add to Cart</button>
             </div>
-
             <div class="product-card">
-                <h3>Neural-Asset Shield (NAS-4)</h3>
-                <p>Proprietary metadata encryption for neuro-tech safeguard compliance in entertainment media.</p>
+                <h3>NAS-4 Encryption</h3>
+                <p>Neuro-Asset Shielding for high-concept media IP.</p>
                 <span class="price-tag">$450.00</span>
-                <button class="buy-btn">Add to Repository</button>
+                <button class="buy-btn">Add to Cart</button>
             </div>
-
-            <div class="product-card">
-                <h3>Sync-Certified Master Seal</h3>
-                <p>Full audit and certification for "One-Stop" licensing readiness. Immediate studio verification.</p>
-                <span class="price-tag">$299.00</span>
-                <button class="buy-btn">Add to Repository</button>
-            </div>
-
         </div>
     </section>
 
-    <section id="gov" class="gov-strip">
-        <div class="gov-info">
-            <h2>Government Relations & R&D</h2>
-            <p>SKRMG provides critical infrastructure for synthetic media standards and neuro-technology ethics. Open for Federal Grant collaboration and Defense-level media security projects.</p>
-        </div>
-        <div class="verification-badge">
-            <div style="font-size: 0.6rem; letter-spacing: 2px; color: var(--gold);">SECURE PORTAL ID</div>
-            <div style="font-family: 'Space Grotesk'; font-size: 1.2rem;">RH-41581781</div>
-            <div style="font-size: 0.6rem; color: var(--accent-green); margin-top: 5px;">● SYSTEM ACTIVE</div>
-        </div>
-    </section>
-
-    <section id="foundation" class="section" style="background: #050505;">
-        <h2 class="section-title">SKRMG Foundation</h2>
-        <p style="max-width: 800px; color: var(--text-dim); font-size: 1.2rem; margin-bottom: 40px;">
-            Our mission is to bridge the gap between high-level media production and community development. We host events, mentorship programs, and provide digital resources to empower the next generation of verified creators.
-        </p>
-        <button class="buy-btn" style="width: auto; padding: 15px 40px;">View Community Programs</button>
+    <section id="register" class="auth-section">
+        <h2 style="font-family: 'Space Grotesk'; margin-bottom: 20px;">JOIN THE CONGLOMERATE</h2>
+        <p style="color: var(--text-dim); margin-bottom: 40px;">Register your credentials to access the Vexilla Trust Network.</p>
+        <a href="#" class="btn-large">Create Professional Account</a>
     </section>
 
     <footer>
-        <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Licensing</a>
-            <a href="#">Investor Portal</a>
-            <a href="#">Contact Support</a>
-        </div>
-        <p style="color: #444; font-size: 0.7rem; letter-spacing: 2px;">
-            &copy; 2026 SOLOMON KIN RECORDS MEDIA GROUP LLC. <br> ALL ASSETS REGISTERED UNDER VEXILLA AITS PROTOCOL.
-        </p>
+        &copy; 2026 SOLOMON KIN RECORDS MEDIA GROUP LLC. <br> ALL ASSETS REGISTERED UNDER VEXILLA AITS PROTOCOL.
     </footer>
 
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Set the slide transition standard to 5 seconds
+        setInterval(nextSlide, 5000);
+    </script>
 </body>
 </html>
