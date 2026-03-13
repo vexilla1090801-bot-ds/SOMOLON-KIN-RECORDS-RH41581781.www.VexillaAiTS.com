@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKRMG Academy | Talent Acquisition & Careers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --dark-bg: #000;
+            --card-bg: #0a0a0a;
+            --border: #1a1a1a;
+            --text-main: #ffffff;
+            --text-dim: #777;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* --- ACADEMY HERO --- */
+        .academy-hero {
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            background: radial-gradient(circle at center, #111 0%, #000 100%);
+        }
+
+        .academy-hero h1 { font-family: 'Space Grotesk'; font-size: 3.5rem; text-transform: uppercase; letter-spacing: -2px; }
+        .academy-hero p { color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-size: 0.7rem; font-weight: 700; }
+
+        /* --- JOB BOARD --- */
+        .careers-container { padding: 80px 8%; max-width: 1200px; margin: 0 auto; }
+        .section-intro { margin-bottom: 60px; }
+        
+        .role-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+
+        .role-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .role-card:hover { border-color: var(--gold); background: #0f0f0f; }
+
+        .role-info h3 { font-family: 'Space Grotesk'; font-size: 1.5rem; margin-bottom: 5px; }
+        .role-info span { color: var(--gold); font-size: 0.7rem; text-transform: uppercase; font-weight: 900; letter-spacing: 1px; }
+        
+        .role-details { color: var(--text-dim); font-size: 0.85rem; max-width: 500px; margin-top: 10px; }
+
+        /* --- APPLICATION BUTTON --- */
+        .btn-apply {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 15px 35px;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            cursor: pointer;
+            letter-spacing: 2px;
+        }
+
+        .btn-apply:hover { background: var(--gold); color: #000; }
+
+        /* --- ACADEMY FOOTER --- */
+        .academy-footer {
+            padding: 100px 8%;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            margin-top: 100px;
+        }
+
+        .academy-footer h2 { font-family: 'Space Grotesk'; margin-bottom: 20px; }
+        .academy-footer p { color: var(--text-dim); max-width: 600px; margin: 0 auto 40px; }
+
+    </style>
+</head>
+<body>
+
+    <header class="academy-hero">
+        <p>Careers & Education</p>
+        <h1>Join the Conglomerate</h1>
+    </header>
+
+    <div class="careers-container">
+        <div class="section-intro">
+            <h2 style="font-family: 'Space Grotesk'; text-transform: uppercase;">Open Positions</h2>
+            <p style="color: #444;">Apply to the division that matches your expertise. All roles require Vexilla ID verification.</p>
+        </div>
+
+        <div class="role-grid">
+            
+            <div class="role-card">
+                <div class="role-info">
+                    <span>REALM PICTURES // VFX</span>
+                    <h3>Senior Neural Architect</h3>
+                    <p class="role-details">Oversee the integration of NAS-4 encryption into our 8K rendering pipeline for upcoming movie treatments.</p>
+                </div>
+                <button class="btn-apply">Submit Portfolio</button>
+            </div>
+
+            <div class="role-card">
+                <div class="role-info">
+                    <span>VEXILLA // SECURITY</span>
+                    <h3>Biometric Compliance Officer</h3>
+                    <p class="role-details">Coordinate with government agencies to ensure all Cast Ai Stars meet global biometric sovereignty standards.</p>
+                </div>
+                <button class="btn-apply">Submit Portfolio</button>
+            </div>
+
+            <div class="role-card">
+                <div class="role-info">
+                    <span>SKRMG // FOUNDATION</span>
+                    <h3>Community Program Director</h3>
+                    <p class="role-details">Manage our "Professions to Programs" initiative, bridging the gap between professional artists and local grant opportunities.</p>
+                </div>
+                <button class="btn-apply">Submit Portfolio</button>
+            </div>
+
+            <div class="role-card">
+                <div class="role-info">
+                    <span>MEDIA GROUP // MANAGEMENT</span>
+                    <h3>Talent Acquisition Scout</h3>
+                    <p class="role-details">Identify high-potential artists for the SKRMG roster, focusing on multi-platform content creators.</p>
+                </div>
+                <button class="btn-apply">Submit Portfolio</button>
+            </div>
+
+        </div>
+    </div>
+
+    <section class="academy-footer">
+        <h2>Not an Artist?</h2>
+        <p>The SKRMG Academy also offers vocational training for those looking to enter the fields of AI ethics, special effects, and digital law. Our programs are supported by federal grants and community partnerships.</p>
+        <button class="btn-apply" style="background: #fff; color: #000; border: none;">View Training Programs</button>
+    </section>
+
+    <footer style="padding: 40px; text-align: center; color: #222; font-size: 0.6rem; letter-spacing: 2px;">
+        SKRMG ACADEMY | REPOSITORY RH41581781 | EQUAL OPPORTUNITY EMPLOYER 2026
+    </footer>
+
+</body>
+</html>
