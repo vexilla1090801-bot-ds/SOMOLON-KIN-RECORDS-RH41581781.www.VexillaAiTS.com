@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REALM VFX | SKRMG Production Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --neon-blue: #00f2ff;
+            --dark-bg: #020202;
+            --panel: #0a0a0a;
+            --border: #1a1a1a;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--dark-bg); color: #fff; font-family: 'Inter', sans-serif; }
+
+        /* --- STUDIO VIEWPORT --- */
+        .studio-container { display: grid; grid-template-columns: 350px 1fr; height: 100vh; }
+
+        /* --- TOOLBAR (LEFT) --- */
+        .toolbar { background: #000; border-right: 1px solid var(--border); padding: 30px; display: flex; flex-direction: column; }
+        .toolbar h2 { font-family: 'Space Grotesk'; font-size: 0.8rem; color: var(--gold); letter-spacing: 3px; margin-bottom: 40px; }
+        
+        .tool-section { margin-bottom: 35px; }
+        .tool-section h4 { font-size: 10px; color: #444; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px; }
+        
+        .render-status { background: #111; padding: 15px; border-radius: 4px; margin-bottom: 10px; border-left: 2px solid var(--neon-blue); }
+        .render-status span { display: block; font-size: 10px; color: #888; }
+        .render-status strong { font-family: 'Space Grotesk'; font-size: 12px; color: var(--neon-blue); }
+
+        /* --- VIEWPORT (RIGHT) --- */
+        .viewport { position: relative; padding: 40px; background-image: radial-gradient(circle at center, #111 0%, #000 100%); display: flex; flex-direction: column; }
+        
+        .main-render-window {
+            flex: 1;
+            border: 1px solid #222;
+            background: url('picture4.jpg'); /* Neural Shield Image as Placeholder */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hud-overlay {
+            position: absolute;
+            top: 20px; left: 20px;
+            font-family: 'Space Grotesk';
+            font-size: 12px;
+            color: var(--neon-blue);
+            text-transform: uppercase;
+        }
+
+        /* --- SPECIAL EFFECTS CONTROLS --- */
+        .fx-controls {
+            height: 250px;
+            background: var(--panel);
+            margin-top: 30px;
+            border-top: 1px solid var(--border);
+            padding: 25px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .control-knob { display: flex; flex-direction: column; gap: 10px; }
+        .control-knob label { font-size: 10px; color: var(--gold); text-transform: uppercase; font-weight: 700; }
+        
+        input[type=range] {
+            appearance: none;
+            width: 100%;
+            height: 2px;
+            background: #333;
+            outline: none;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            background: var(--gold);
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .btn-render {
+            grid-column: span 3;
+            background: var(--gold);
+            color: #000;
+            padding: 15px;
+            font-weight: 900;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            font-family: 'Space Grotesk';
+            letter-spacing: 2px;
+        }
+
+        .btn-render:hover { background: #fff; }
+
+    </style>
+</head>
+<body>
+
+    <div class="studio-container">
+        <aside class="toolbar">
+            <h2>REALM VFX ENGINE</h2>
+            
+            <div class="tool-section">
+                <h4>Active Pipeline</h4>
+                <div class="render-status">
+                    <span>PROJECT</span>
+                    <strong>MOTHER'S MERCY [EXT. NEURAL FOREST]</strong>
+                </div>
+                <div class="render-status" style="border-left-color: var(--gold);">
+                    <span>TALENT RENDERING</span>
+                    <strong>CAST AI STAR: ALPHA (V3.1)</strong>
+                </div>
+            </div>
+
+            <div class="tool-section">
+                <h4>Vexilla Asset Sync</h4>
+                <p style="font-size: 11px; color: #666; line-height: 1.4;">
+                    Secure metadata injection active. 
+                    ID: RH41581781-VFX-99.
+                </p>
+            </div>
+
+            <div style="margin-top: auto;">
+                <button style="width: 100%; background: transparent; border: 1px solid #333; color: #888; padding: 10px; font-size: 10px; text-transform: uppercase;">Export Master Reel</button>
+            </div>
+        </aside>
+
+        <main class="viewport">
+            <div class="main-render-window">
+                <div class="hud-overlay">
+                    ● RAW_INPUT // NEURAL_LAYER_ACTIVE // 24.00 FPS
+                </div>
+                <div style="background: rgba(0,0,0,0.6); padding: 20px; border: 1px solid var(--gold); text-align: center;">
+                    <h3 style="font-family: 'Space Grotesk'; font-size: 1rem; color: var(--gold);">SECURE MEDIA STREAM</h3>
+                    <p style="font-size: 10px; color: #888;">WATERMARKED BY VEXILLA AiTS</p>
+                </div>
+            </div>
+
+            <section class="fx-controls">
+                <div class="control-knob">
+                    <label>Neural Particle Density</label>
+                    <input type="range" min="1" max="100" value="75">
+                </div>
+                <div class="control-knob">
+                    <label>Synthetic Skin Texture (AI)</label>
+                    <input type="range" min="1" max="100" value="42">
+                </div>
+                <div class="control-knob">
+                    <label>Environment Distortion</label>
+                    <input type="range" min="1" max="100" value="15">
+                </div>
+                <button class="btn-render">Initialize Final 8K Render Sequence</button>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
