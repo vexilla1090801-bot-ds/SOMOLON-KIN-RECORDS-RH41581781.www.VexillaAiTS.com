@@ -3,145 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SKRMG COMMAND | Operational Control</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <title>Global Command | SKRMG Apex Control</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@200;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --cmd-green: #00ff41;
-            --cmd-amber: #ffb000;
-            --cmd-red: #ff3e3e;
-            --bg: #000a00;
-            --glass: rgba(0, 255, 65, 0.05);
-            --border: rgba(0, 255, 65, 0.2);
+            --gold: #d4af37;
+            --bg: #000000;
+            --surface: #0a0a0a;
+            --border: rgba(212, 175, 55, 0.15);
+            --text-main: #ffffff;
+            --text-dim: #444;
+            --alert: #ff3e3e;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
-            background-color: var(--bg); 
-            color: var(--cmd-green); 
-            font-family: 'Space Mono', monospace; 
-            height: 100vh; 
-            display: grid;
-            grid-template-columns: 300px 1fr 350px;
-            grid-template-rows: 60px 1fr 200px;
-            gap: 10px;
-            padding: 10px;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+        /* --- APEX NAVIGATION: SCALE ENHANCED --- */
+        nav {
+            position: sticky; top: 0; width: 100%;
+            padding: 40px 5% 20px;
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .brand-container {
+            margin-bottom: 25px; 
+        }
+
+        /* LOGO SCALED 3X */
+        .master-logo {
+            height: 135px; 
+            width: auto;
+            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4));
+        }
+
+        .nav-links { display: flex; gap: 35px; }
+        .nav-links a { 
+            text-decoration: none; color: #666; 
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase; 
+            letter-spacing: 2px; transition: 0.4s;
+        }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* --- COMMAND INTERFACE --- */
+        main { padding: 80px 10%; }
+        
+        .map-header { 
+            display: flex; justify-content: space-between; align-items: flex-end; 
+            border-bottom: 1px solid var(--border); padding-bottom: 30px; margin-bottom: 50px; 
+        }
+        .map-header h1 { font-family: 'Syncopate'; font-size: 1.5rem; letter-spacing: 6px; text-transform: uppercase; }
+        .node-count { font-family: 'Space Mono'; font-size: 0.7rem; color: var(--gold); }
+
+        .system-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
+        
+        .visual-monitor {
+            height: 500px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Placeholder for Global Map Visual */
+        .visual-monitor::after {
+            content: "GLOBAL_VEXILLA_NODES_ACTIVE";
+            font-family: 'Space Mono';
+            font-size: 0.6rem;
+            color: #1a1a1a;
+            letter-spacing: 10px;
         }
 
-        /* --- UI UTILITIES --- */
-        .panel { background: var(--glass); border: 1px solid var(--border); padding: 15px; position: relative; overflow: hidden; }
-        .panel-header { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; border-bottom: 1px solid var(--border); padding-bottom: 5px; opacity: 0.7; }
-        .glitch { animation: flash 4s infinite; }
-        @keyframes flash { 0%, 90%, 100% { opacity: 1; } 92% { opacity: 0.3; } 95% { opacity: 0.8; } }
-
-        /* --- HEADER --- */
-        header { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; border: 1px solid var(--border); }
-        .logo-text { font-family: 'Space Grotesk'; font-weight: 700; font-size: 1.2rem; }
-        .system-time { font-size: 0.8rem; }
-
-        /* --- LEFT COLUMN: ASSET STATUS --- */
-        .asset-feed { grid-row: 2 / 4; }
-        .asset-card { margin-bottom: 20px; padding: 10px; border: 1px dotted var(--border); }
-        .asset-card h4 { font-size: 0.7rem; color: #fff; margin-bottom: 5px; }
-        .status-bar { height: 4px; width: 100%; background: #002200; margin-top: 5px; }
-        .status-fill { height: 100%; background: var(--cmd-green); }
-
-        /* --- MAIN VIEWPORT: GLOBAL MAP --- */
-        .main-map { display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle, #001a00 0%, #000 100%); }
-        .map-graphic { width: 80%; height: 60%; border: 1px dashed var(--border); display: flex; align-items: center; justify-content: center; opacity: 0.4; }
-
-        /* --- RIGHT COLUMN: SECURITY --- */
-        .security-logs { grid-row: 2 / 4; font-size: 0.65rem; line-height: 1.4; }
-        .log-entry { margin-bottom: 8px; border-bottom: 1px solid rgba(0,255,65,0.05); }
-        .log-entry span { color: var(--cmd-amber); }
-
-        /* --- BOTTOM: REPOSITORY STATUS --- */
-        .repo-status { grid-column: 2; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-        .big-stat { text-align: center; }
-        .big-stat div { font-size: 2rem; font-weight: 700; color: #fff; }
-
-        .btn-override { 
-            background: transparent; 
-            border: 1px solid var(--cmd-red); 
-            color: var(--cmd-red); 
-            padding: 5px 10px; 
-            font-size: 0.6rem; 
-            cursor: pointer; 
-            margin-top: 10px;
+        .side-terminal { display: flex; flex-direction: column; gap: 20px; }
+        
+        .terminal-card {
+            background: var(--surface);
+            border: 1px solid #111;
+            padding: 25px;
         }
-        .btn-override:hover { background: var(--cmd-red); color: #000; }
+        .terminal-card h3 { font-family: 'Syncopate'; font-size: 0.6rem; color: var(--gold); margin-bottom: 15px; letter-spacing: 2px; }
+        .stat-line { display: flex; justify-content: space-between; font-family: 'Space Mono'; font-size: 0.7rem; margin-bottom: 10px; color: #888; }
+        .stat-line span { color: #fff; }
+
+        /* --- FOOTER STATUS & LOGO --- */
+        footer {
+            padding: 40px 10%;
+            background: #000;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left { display: flex; align-items: center; gap: 20px; }
+        .footer-logo { height: 30px; width: auto; opacity: 0.4; filter: grayscale(1); }
 
     </style>
 </head>
 <body>
 
-    <header class="panel">
-        <div class="logo-text">SKRMG // COMMAND_BRIDGE</div>
-        <div class="system-time">2026-03-13 // 00:32:15 UTC</div>
-        <div style="font-size: 0.7rem;">AUTH: ROOT_RH41581781</div>
-    </header>
+    <nav>
+        <div class="brand-container">
+            <img src="logo.png" alt="SKRMG" class="master-logo">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Identity</a>
+            <a href="portal.html">Exchange</a>
+            <a href="dashboard.html">Intelligence</a>
+            <a href="media.html">Media</a>
+            <a href="sitemap.html">Index</a>
+        </div>
+    </nav>
 
-    <aside class="panel asset-feed">
-        <div class="panel-header">Division Real-Time</div>
-        
-        <div class="asset-card">
-            <h4>DJ M3 // STREAMING</h4>
-            <div class="status-bar"><div class="status-fill" style="width: 88%;"></div></div>
-            <p style="font-size: 10px; margin-top: 5px;">PEAK LOAD: 1.2M CONCURRENT</p>
+    <main>
+        <div class="map-header">
+            <h1>Global Command</h1>
+            <div class="node-count">PROTOCOL: RH41581781 // ACTIVE_NODES: 1402</div>
         </div>
 
-        <div class="asset-card">
-            <h4>REALM // MOTHER'S MERCY</h4>
-            <div class="status-bar"><div class="status-fill" style="width: 42%;"></div></div>
-            <p style="font-size: 10px; margin-top: 5px;">RENDER PROGRESS: FRAME 44,092</p>
-        </div>
+        <div class="system-grid">
+            <div class="visual-monitor">
+                
+            </div>
 
-        <div class="asset-card">
-            <h4>VEXILLA // AUTH NODES</h4>
-            <div class="status-bar"><div class="status-fill" style="width: 99.9%;"></div></div>
-            <p style="font-size: 10px; margin-top: 5px;">IDENTITY INTEGRITY: NOMINAL</p>
-        </div>
+            <div class="side-terminal">
+                <div class="terminal-card">
+                    <h3>Node Distribution</h3>
+                    <div class="stat-line">North America <span>422</span></div>
+                    <div class="stat-line">Europe <span>388</span></div>
+                    <div class="stat-line">Asia Pacific <span>592</span></div>
+                </div>
 
-        <div class="asset-card">
-            <h4>FOUNDATION // GRANTS</h4>
-            <div class="status-bar"><div class="status-fill" style="width: 15%;"></div></div>
-            <p style="font-size: 10px; margin-top: 5px;">DISBURSEMENT: $1.4M / $10M</p>
+                <div class="terminal-card">
+                    <h3>Security Status</h3>
+                    <div class="stat-line">Encryption <span>AES-256</span></div>
+                    <div class="stat-line">Firewall <span>OPTIMAL</span></div>
+                    <div class="stat-line" style="color: var(--gold);">Handshake <span>VERIFIED</span></div>
+                </div>
+            </div>
         </div>
-    </aside>
-
-    <main class="panel main-map">
-        <div class="panel-header">Global Infrastructure Grid</div>
-        <div class="map-graphic">
-            [ COORDINATE GRID MAP: ACTIVE_NODES_DETECTION ]
-        </div>
-        <p style="margin-top: 20px; font-size: 0.7rem; color: var(--cmd-amber);">CAUTION: UNAUTHORIZED PING DETECTED IN SECTOR 7G</p>
     </main>
 
-    <aside class="panel security-logs">
-        <div class="panel-header">SMRMG/RH41581781 SEC-LOG</div>
-        <div class="log-entry"><span>[00:31:02]</span> Vexilla Handshake: Gov_Liaison_04 Verified.</div>
-        <div class="log-entry"><span>[00:30:45]</span> NAS-4 Encryption: Cycle Complete (2.4ms).</div>
-        <div class="log-entry"><span>[00:29:12]</span> Alert: AI Scraper blocked from (IP: 192.x.x.x).</div>
-        <div class="log-entry"><span>[00:25:33]</span> Repository Sync: Cold Storage Mirroring Active.</div>
-        <div class="log-entry"><span>[00:20:01]</span> Academy: 452 New Portfolios Ingested.</div>
-        <div class="log-entry"><span>[00:15:22]</span> Dashboard: ROI Forecast updated to +14%.</div>
-        <button class="btn-override">FORCE SYSTEM RE-INDEX</button>
-    </aside>
-
-    <footer class="panel repo-status">
-        <div class="big-stat">
-            <div class="glitch">18</div>
-            <p style="font-size: 0.6rem;">ACTIVE IP SLATES</p>
+    <footer>
+        <div class="footer-left">
+            <img src="logo.png" alt="SKRMG" class="footer-logo">
+            <div style="font-size: 0.6rem; color: #333; letter-spacing: 2px;">SKRMG COMMAND CENTER // SEC_LEVEL: OMEGA</div>
         </div>
-        <div class="big-stat">
-            <div>99.9%</div>
-            <p style="font-size: 0.6rem;">IDENTITY SECURITY</p>
-        </div>
-        <div class="big-stat">
-            <div style="color: var(--cmd-amber);">$12.5M</div>
-            <p style="font-size: 0.6rem;">CONGLOMERATE VALUE</p>
-        </div>
+        <div style="font-size: 0.6rem; color: #333;">&copy; 2026 GLOBAL OPERATIONS</div>
     </footer>
 
 </body>
