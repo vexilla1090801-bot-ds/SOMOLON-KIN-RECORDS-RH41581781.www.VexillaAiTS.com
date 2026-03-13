@@ -3,182 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SKRMG Media Divisions | REALM Pictures & VFX</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <title>Media Slate | SKRMG REALM Pictures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@200;400;700&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #d4af37;
-            --dark-bg: #000000;
-            --card-bg: #111111;
-            --accent-green: #39ff14;
+            --bg: #000000;
+            --surface: #0a0a0a;
+            --border: rgba(212, 175, 55, 0.2);
             --text-main: #ffffff;
+            --text-dim: #555;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            background-color: var(--dark-bg);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; }
 
-        /* --- CINEMATIC HEADER --- */
+        /* --- APEX NAVIGATION --- */
+        nav {
+            padding: 25px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(20px);
+            position: sticky; top: 0; z-index: 1000;
+            background: rgba(0,0,0,0.95);
+        }
+        .master-logo { height: 35px; filter: drop-shadow(0 0 8px var(--gold)); }
+        .nav-links a { text-decoration: none; color: #888; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-left: 30px; }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* --- FEATURED FILM HERO --- */
         .media-hero {
-            height: 60vh;
-            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%), url('picture3.jpg');
+            height: 85vh;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), var(--bg)), url('https://images.unsplash.com/photo-1485846234645-a62644ef7467?auto=format&fit=crop&q=80&w=2069');
             background-size: cover;
             background-position: center;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 0 8% 50px;
+            padding: 80px 10%;
         }
+        .production-tag { font-family: 'Syncopate'; font-size: 0.6rem; color: var(--gold); letter-spacing: 5px; margin-bottom: 15px; }
+        .media-hero h1 { font-family: 'Space Grotesk'; font-size: 5rem; text-transform: uppercase; line-height: 0.8; margin-bottom: 20px; }
+        .media-hero p { max-width: 500px; color: #ccc; font-weight: 300; line-height: 1.6; margin-bottom: 30px; }
 
-        .media-hero h1 { font-family: 'Space Grotesk'; font-size: 4rem; text-transform: uppercase; margin-bottom: 10px; }
-        .division-tag { background: var(--gold); color: #000; padding: 5px 15px; font-weight: 900; font-size: 0.7rem; text-transform: uppercase; display: inline-block; width: fit-content; }
-
-        /* --- CONTENT SECTION --- */
-        .content-section { padding: 60px 8%; }
-        .row-title { font-family: 'Space Grotesk'; font-size: 1.5rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px; border-bottom: 1px solid #222; padding-bottom: 10px; }
-
-        /* --- MOVIE TREATMENT GRID --- */
-        .treatment-scroll {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 25px;
-            margin-bottom: 80px;
+        /* --- CONTENT SLATE GRID --- */
+        .slate-container { padding: 100px 10%; }
+        .section-header { 
+            display: flex; justify-content: space-between; align-items: flex-end; 
+            margin-bottom: 50px; border-bottom: 1px solid #1a1a1a; padding-bottom: 20px;
         }
+        .section-header h2 { font-family: 'Syncopate'; font-size: 1.2rem; letter-spacing: 4px; }
+        .section-header span { font-family: 'Space Grotesk'; font-size: 0.7rem; color: var(--gold); }
 
-        .treatment-card {
-            background: var(--card-bg);
-            border: 1px solid #222;
-            position: relative;
-            overflow: hidden;
-            transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            aspect-ratio: 16/9;
-        }
-
-        .treatment-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.5s; }
-        .treatment-card:hover img { transform: scale(1.1); opacity: 0.4; }
-
-        .card-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.9));
-        }
-
-        .status-badge { font-size: 10px; font-weight: 900; letter-spacing: 1px; color: var(--gold); }
-
-        /* --- VFX / SPECIAL EFFECTS SECTION --- */
-        .vfx-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 80px;
-        }
-
-        .vfx-showcase {
-            background: #080808;
-            padding: 40px;
-            border: 1px dashed #333;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .vfx-showcase h3 { color: var(--gold); font-family: 'Space Grotesk'; font-size: 2rem; margin-bottom: 20px; }
+        .slate-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         
-        /* --- TALENT / CAST AI STARS --- */
-        .talent-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
-        }
-
-        .talent-avatar {
-            aspect-ratio: 2/3;
-            background: #111;
-            border: 1px solid #222;
+        .content-card {
+            background: var(--surface);
+            border: 1px solid #111;
+            transition: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer;
             position: relative;
             overflow: hidden;
         }
+        .content-card:hover { border-color: var(--gold); transform: scale(1.03); }
+        .card-img { height: 450px; background: #111; position: relative; overflow: hidden; }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.5s; }
+        .content-card:hover .card-img img { opacity: 1; transform: scale(1.1); }
 
-        .talent-avatar:hover { border-color: var(--accent-green); }
-        .talent-label { position: absolute; bottom: 10px; left: 10px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
+        .card-info { padding: 25px; }
+        .card-info h3 { font-family: 'Space Grotesk'; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 5px; }
+        .card-info p { font-size: 0.7rem; color: #666; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* --- BUTTONS --- */
-        .btn-play { background: #fff; color: #000; padding: 12px 30px; border: none; font-weight: 900; text-transform: uppercase; cursor: pointer; margin-right: 15px; }
-        .btn-info { background: rgba(255,255,255,0.2); color: #fff; padding: 12px 30px; border: none; font-weight: 900; text-transform: uppercase; cursor: pointer; backdrop-filter: blur(5px); }
+        /* --- CTA STRIP --- */
+        .distribution-strip {
+            background: var(--gold);
+            padding: 40px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #000;
+        }
+        .distribution-strip h4 { font-family: 'Syncopate'; font-size: 0.9rem; }
+        .btn-contact { 
+            border: 1px solid #000; padding: 12px 30px; 
+            font-family: 'Space Grotesk'; font-weight: 700; 
+            text-transform: uppercase; font-size: 0.7rem; 
+            text-decoration: none; color: #000;
+        }
 
     </style>
 </head>
 <body>
 
-    <header class="media-hero">
-        <span class="division-tag">REALM Pictures Division</span>
-        <h1>MOTHER'S MERCY</h1>
-        <p style="max-width: 600px; margin-bottom: 20px; color: #ccc;">A high-concept neural-drama exploring the ethics of memory extraction and the Vexilla Trust Protocol. Now in post-production.</p>
-        <div>
-            <button class="btn-play">▶ Play Treatment</button>
-            <button class="btn-info">View IP Details</button>
+    <nav>
+        <div class="brand-container">
+            <img src="logo.png" alt="SKRMG" class="master-logo">
         </div>
+        <div class="nav-links">
+            <a href="index.html">Identity</a>
+            <a href="portal.html">Exchange</a>
+            <a href="foundation.html">Foundation</a>
+            <a href="command.html">Bridge</a>
+        </div>
+    </nav>
+
+    <header class="media-hero">
+        <div class="production-tag">REALM PICTURES // PRE-PRODUCTION</div>
+        <h1>Mother's<br>Mercy</h1>
+        <p>A Vexilla-authenticated neural thriller. Witness the first theatrical event rendered entirely through high-frequency biometric data.</p>
+        <div style="font-family: 'Space Grotesk'; font-size: 0.8rem; color: var(--gold);">PREMIERE: WINTER 2026</div>
     </header>
 
-    <main class="content-section">
-        
-        <h2 class="row-title">Active Movie Treatments</h2>
-        <div class="treatment-scroll">
-            <div class="treatment-card">
-                <img src="picture1.jpg" alt="Project Alpha">
-                <div class="card-overlay">
-                    <span class="status-badge">PRE-PRODUCTION</span>
-                    <h4>PROJECT ALPHA</h4>
+    <main class="slate-container">
+        <div class="section-header">
+            <h2>Talent Roster</h2>
+            <span>Biometrically Verified Assets</span>
+        </div>
+
+        <div class="slate-grid">
+            <div class="content-card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1493225255756-d9584f8606e9?auto=format&fit=crop&q=80&w=2070" alt="DJ M3">
+                </div>
+                <div class="card-info">
+                    <h3>DJ M3</h3>
+                    <p>Audio Architect / RH41581781</p>
                 </div>
             </div>
-            <div class="treatment-card">
-                <img src="picture4.jpg" alt="Neural Shield">
-                <div class="card-overlay">
-                    <span class="status-badge">DEVELOPMENT</span>
-                    <h4>NEURAL SHIELD: THE SERIES</h4>
+
+            <div class="content-card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1520127866562-2323d3b07adc?auto=format&fit=crop&q=80&w=2070" alt="YUNGBRO">
+                </div>
+                <div class="card-info">
+                    <h3>YUNGBRO</h3>
+                    <p>Vocal Synthesis / RH41581781</p>
                 </div>
             </div>
-            <div class="treatment-card">
-                <img src="picture2.jpg" alt="Vexilla Rising">
-                <div class="card-overlay">
-                    <span class="status-badge">SYNC-READY</span>
-                    <h4>VEXILLA RISING</h4>
+
+            <div class="content-card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1557683311-eac922347aa1?auto=format&fit=crop&q=80&w=2029" alt="VEXILLA AI">
+                </div>
+                <div class="card-info">
+                    <h3>VEX-STAR 01</h3>
+                    <p>Synthetic Protagonist / REALM</p>
                 </div>
             </div>
         </div>
-
-        <h2 class="row-title">Special Effects & R&D</h2>
-        <div class="vfx-grid">
-            <div class="vfx-showcase">
-                <h3>Neural VFX Suite</h3>
-                <p style="color: #888; margin-bottom: 20px;">We utilize proprietary algorithms to render organic neural structures. Our special effects division provides high-end CGI for the SKRMG network and external studio partners.</p>
-                <a href="#" style="color: var(--gold); font-size: 12px; font-weight: 700; text-decoration: none;">VIEW SHOWREEL →</a>
-            </div>
-            <div style="background: url('picture4.jpg'); background-size: cover; border: 1px solid #222;"></div>
-        </div>
-
-        <h2 class="row-title">Featured Talent & Cast AI Stars</h2>
-        <div class="talent-grid">
-            <div class="talent-avatar"><div class="talent-label">DJ M3</div></div>
-            <div class="talent-avatar"><div class="talent-label">3dayz ahead</div></div>
-            <div class="talent-avatar"><div class="talent-label">Yungbro</div></div>
-            <div class="talent-avatar"><div class="talent-label">Prince Raz</div></div>
-            <div class="talent-avatar" style="border-color: var(--gold);">
-                <div class="talent-label" style="color: var(--gold);">AI STAR: ALPHA</div>
-            </div>
-        </div>
-
     </main>
 
-    <footer style="padding: 60px 8%; text-align: center; color: #444; font-size: 10px; letter-spacing: 2px;">
-        SKRMG MEDIA GROUP | REALM PICTURES | ALL RIGHTS RESERVED 2026
+    <section class="distribution-strip">
+        <h4>Global Distribution & Licensing Inquiries</h4>
+        <a href="#" class="btn-contact">Contact Business Affairs</a>
+    </section>
+
+    <footer style="padding: 60px 10%; text-align: center; border-top: 1px solid #111;">
+        <div style="font-family: 'Syncopate'; font-size: 0.6rem; color: #333; letter-spacing: 5px;">
+            REALM PICTURES // A DIVISION OF SKRMG CONGLOMERATE
+        </div>
     </footer>
 
 </body>
