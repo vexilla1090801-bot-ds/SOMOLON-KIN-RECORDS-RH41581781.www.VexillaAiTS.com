@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKRMG Media Divisions | REALM Pictures & VFX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --dark-bg: #000000;
+            --card-bg: #111111;
+            --accent-green: #39ff14;
+            --text-main: #ffffff;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- CINEMATIC HEADER --- */
+        .media-hero {
+            height: 60vh;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%), url('picture3.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0 8% 50px;
+        }
+
+        .media-hero h1 { font-family: 'Space Grotesk'; font-size: 4rem; text-transform: uppercase; margin-bottom: 10px; }
+        .division-tag { background: var(--gold); color: #000; padding: 5px 15px; font-weight: 900; font-size: 0.7rem; text-transform: uppercase; display: inline-block; width: fit-content; }
+
+        /* --- CONTENT SECTION --- */
+        .content-section { padding: 60px 8%; }
+        .row-title { font-family: 'Space Grotesk'; font-size: 1.5rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px; border-bottom: 1px solid #222; padding-bottom: 10px; }
+
+        /* --- MOVIE TREATMENT GRID --- */
+        .treatment-scroll {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 80px;
+        }
+
+        .treatment-card {
+            background: var(--card-bg);
+            border: 1px solid #222;
+            position: relative;
+            overflow: hidden;
+            transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            aspect-ratio: 16/9;
+        }
+
+        .treatment-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.5s; }
+        .treatment-card:hover img { transform: scale(1.1); opacity: 0.4; }
+
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+        }
+
+        .status-badge { font-size: 10px; font-weight: 900; letter-spacing: 1px; color: var(--gold); }
+
+        /* --- VFX / SPECIAL EFFECTS SECTION --- */
+        .vfx-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .vfx-showcase {
+            background: #080808;
+            padding: 40px;
+            border: 1px dashed #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .vfx-showcase h3 { color: var(--gold); font-family: 'Space Grotesk'; font-size: 2rem; margin-bottom: 20px; }
+        
+        /* --- TALENT / CAST AI STARS --- */
+        .talent-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+
+        .talent-avatar {
+            aspect-ratio: 2/3;
+            background: #111;
+            border: 1px solid #222;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .talent-avatar:hover { border-color: var(--accent-green); }
+        .talent-label { position: absolute; bottom: 10px; left: 10px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
+
+        /* --- BUTTONS --- */
+        .btn-play { background: #fff; color: #000; padding: 12px 30px; border: none; font-weight: 900; text-transform: uppercase; cursor: pointer; margin-right: 15px; }
+        .btn-info { background: rgba(255,255,255,0.2); color: #fff; padding: 12px 30px; border: none; font-weight: 900; text-transform: uppercase; cursor: pointer; backdrop-filter: blur(5px); }
+
+    </style>
+</head>
+<body>
+
+    <header class="media-hero">
+        <span class="division-tag">REALM Pictures Division</span>
+        <h1>MOTHER'S MERCY</h1>
+        <p style="max-width: 600px; margin-bottom: 20px; color: #ccc;">A high-concept neural-drama exploring the ethics of memory extraction and the Vexilla Trust Protocol. Now in post-production.</p>
+        <div>
+            <button class="btn-play">▶ Play Treatment</button>
+            <button class="btn-info">View IP Details</button>
+        </div>
+    </header>
+
+    <main class="content-section">
+        
+        <h2 class="row-title">Active Movie Treatments</h2>
+        <div class="treatment-scroll">
+            <div class="treatment-card">
+                <img src="picture1.jpg" alt="Project Alpha">
+                <div class="card-overlay">
+                    <span class="status-badge">PRE-PRODUCTION</span>
+                    <h4>PROJECT ALPHA</h4>
+                </div>
+            </div>
+            <div class="treatment-card">
+                <img src="picture4.jpg" alt="Neural Shield">
+                <div class="card-overlay">
+                    <span class="status-badge">DEVELOPMENT</span>
+                    <h4>NEURAL SHIELD: THE SERIES</h4>
+                </div>
+            </div>
+            <div class="treatment-card">
+                <img src="picture2.jpg" alt="Vexilla Rising">
+                <div class="card-overlay">
+                    <span class="status-badge">SYNC-READY</span>
+                    <h4>VEXILLA RISING</h4>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="row-title">Special Effects & R&D</h2>
+        <div class="vfx-grid">
+            <div class="vfx-showcase">
+                <h3>Neural VFX Suite</h3>
+                <p style="color: #888; margin-bottom: 20px;">We utilize proprietary algorithms to render organic neural structures. Our special effects division provides high-end CGI for the SKRMG network and external studio partners.</p>
+                <a href="#" style="color: var(--gold); font-size: 12px; font-weight: 700; text-decoration: none;">VIEW SHOWREEL →</a>
+            </div>
+            <div style="background: url('picture4.jpg'); background-size: cover; border: 1px solid #222;"></div>
+        </div>
+
+        <h2 class="row-title">Featured Talent & Cast AI Stars</h2>
+        <div class="talent-grid">
+            <div class="talent-avatar"><div class="talent-label">DJ M3</div></div>
+            <div class="talent-avatar"><div class="talent-label">3dayz ahead</div></div>
+            <div class="talent-avatar"><div class="talent-label">Yungbro</div></div>
+            <div class="talent-avatar"><div class="talent-label">Prince Raz</div></div>
+            <div class="talent-avatar" style="border-color: var(--gold);">
+                <div class="talent-label" style="color: var(--gold);">AI STAR: ALPHA</div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer style="padding: 60px 8%; text-align: center; color: #444; font-size: 10px; letter-spacing: 2px;">
+        SKRMG MEDIA GROUP | REALM PICTURES | ALL RIGHTS RESERVED 2026
+    </footer>
+
+</body>
+</html>
