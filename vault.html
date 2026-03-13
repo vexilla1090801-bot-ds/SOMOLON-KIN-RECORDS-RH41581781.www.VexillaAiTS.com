@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKRMG Vault | Asset Management & Licensing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --dark-bg: #050505;
+            --card: #0c0c0c;
+            --border: #1a1a1a;
+            --accent-green: #39ff14;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--dark-bg); color: #fff; font-family: 'Inter', sans-serif; display: flex; min-height: 100vh; }
+
+        /* --- SIDEBAR --- */
+        .side-nav { width: 260px; border-right: 1px solid var(--border); padding: 40px 20px; display: flex; flex-direction: column; background: #000; }
+        .user-profile { text-align: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+        .avatar-circle { width: 80px; height: 80px; border-radius: 50%; background: var(--gold); margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; color: #000; font-weight: 900; font-size: 1.5rem; }
+
+        .nav-link { padding: 12px 15px; color: #666; text-decoration: none; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; margin-bottom: 5px; border-radius: 4px; }
+        .nav-link:hover, .nav-link.active { color: var(--gold); background: #111; }
+
+        /* --- CONTENT --- */
+        .main { flex: 1; padding: 50px 5%; overflow-y: auto; }
+        .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; }
+        .section-header h1 { font-family: 'Space Grotesk'; font-size: 2rem; text-transform: uppercase; }
+
+        /* --- ASSET CARDS --- */
+        .vault-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .asset-card { background: var(--card); border: 1px solid var(--border); padding: 30px; position: relative; transition: 0.3s; }
+        .asset-card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        
+        .id-badge { position: absolute; top: 20px; right: 20px; font-size: 10px; padding: 4px 8px; background: rgba(57, 255, 20, 0.1); color: var(--accent-green); border: 1px solid var(--accent-green); border-radius: 2px; }
+
+        .asset-title { font-family: 'Space Grotesk'; color: var(--gold); font-size: 1.1rem; margin-bottom: 10px; }
+        .asset-meta { font-size: 0.75rem; color: #666; margin-bottom: 20px; line-height: 1.6; }
+
+        .action-bar { display: flex; gap: 10px; }
+        .btn-small { flex: 1; padding: 10px; font-size: 10px; text-transform: uppercase; font-weight: 900; cursor: pointer; border: 1px solid #333; background: transparent; color: #fff; }
+        .btn-small:hover { background: #fff; color: #000; }
+
+        /* --- ROYALTY TRACKER --- */
+        .royalty-panel { margin-top: 50px; background: #000; border: 1px solid var(--border); padding: 30px; }
+        .royalty-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.8rem; }
+        .royalty-table th { text-align: left; color: #444; text-transform: uppercase; padding: 10px; border-bottom: 1px solid #222; }
+        .royalty-table td { padding: 15px 10px; border-bottom: 1px solid #111; }
+        .amount { color: var(--accent-green); font-family: 'Space Grotesk'; font-weight: 700; }
+
+    </style>
+</head>
+<body>
+
+    <nav class="side-nav">
+        <div class="user-profile">
+            <div class="avatar-circle">M3</div>
+            <h3 style="font-family: 'Space Grotesk'; font-size: 0.9rem;">DJ M3</h3>
+            <p style="font-size: 10px; color: #666; margin-top: 5px;">VERIFIED ARTIST</p>
+        </div>
+        
+        <a href="#" class="nav-link active">Licensing Vault</a>
+        <a href="#" class="nav-link">Neural Asset Shield</a>
+        <a href="#" class="nav-link">Cast AI Config</a>
+        <a href="#" class="nav-link">Revenue / Royalties</a>
+        <a href="#" class="nav-link">Gov-Certifications</a>
+        
+        <div style="margin-top: auto; font-family: 'Space Grotesk'; font-size: 10px; color: #333;">
+            REPO: RH41581781<br>STATUS: ENCRYPTED
+        </div>
+    </nav>
+
+    <main class="main">
+        <header class="section-header">
+            <div>
+                <p style="color: var(--gold); font-weight: 700; font-size: 0.7rem; letter-spacing: 2px;">VEXILLA TRUST PROTOCOL</p>
+                <h1>Secure Asset Vault</h1>
+            </div>
+            <button class="btn-small" style="padding: 12px 25px; border-color: var(--gold); color: var(--gold);">+ Register New Asset</button>
+        </header>
+
+        <div class="vault-grid">
+            <div class="asset-card">
+                <span class="id-badge">VEXILLA CERTIFIED</span>
+                <h3 class="asset-title">Neural Frequency 01</h3>
+                <p class="asset-meta">Type: Master Recording<br>Protection: NAS-4 Active<br>Registry: SMRMG-2026-0041</p>
+                <div class="action-bar">
+                    <button class="btn-small">Licensing Key</button>
+                    <button class="btn-small">Download Certificate</button>
+                </div>
+            </div>
+
+            <div class="asset-card">
+                <span class="id-badge">VEXILLA CERTIFIED</span>
+                <h3 class="asset-title">Mother's Mercy (Slate)</h3>
+                <p class="asset-meta">Type: Movie Treatment<br>Protection: IP Shielding<br>Registry: SMRMG-2026-0088</p>
+                <div class="action-bar">
+                    <button class="btn-small">Manage IP</button>
+                    <button class="btn-small">Studio Pitch-Kit</button>
+                </div>
+            </div>
+
+            <div class="asset-card">
+                <span class="id-badge" style="border-color: var(--gold); color: var(--gold);">PENDING GOV-AUDIT</span>
+                <h3 class="asset-title">Community Tech Series</h3>
+                <p class="asset-meta">Type: Educational Content<br>Protection: Public-Domain Hybrid<br>Registry: FOUNDATION-X99</p>
+                <div class="action-bar">
+                    <button class="btn-small">Grant Tracking</button>
+                    <button class="btn-small">Submit Audit</button>
+                </div>
+            </div>
+        </div>
+
+        <section class="royalty-panel">
+            <h2 style="font-family: 'Space Grotesk'; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px;">Recent Licensing Activity</h2>
+            <table class="royalty-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Source</th>
+                        <th>Asset ID</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>03/10/26</td>
+                        <td>REALM Pictures</td>
+                        <td>RH-41581781-A</td>
+                        <td>Sync Licensing</td>
+                        <td class="amount">+$4,500.00</td>
+                    </tr>
+                    <tr>
+                        <td>03/08/26</td>
+                        <td>Gov-Grant (R&D)</td>
+                        <td>NAS-4-FED</td>
+                        <td>Technology Grant</td>
+                        <td class="amount">+$12,000.00</td>
+                    </tr>
+                    <tr>
+                        <td>03/01/26</td>
+                        <td>Global Sync Co.</td>
+                        <td>M3-MAST-09</td>
+                        <td>Commercial Use</td>
+                        <td class="amount">+$850.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+</body>
+</html>
