@@ -18,24 +18,41 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; }
 
-        /* --- APEX NAVIGATION --- */
+        /* --- APEX NAVIGATION: SCALE ENHANCED --- */
         nav {
-            padding: 25px 5%;
+            position: sticky; top: 0; width: 100%;
+            padding: 40px 5% 20px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column; /* Stack logo and links */
             align-items: center;
-            border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(20px);
-            position: sticky; top: 0; z-index: 1000;
+            z-index: 1000;
             background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
         }
-        .master-logo { height: 35px; filter: drop-shadow(0 0 8px var(--gold)); }
-        .nav-links a { text-decoration: none; color: #888; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-left: 30px; }
-        .nav-links a:hover { color: var(--gold); }
+
+        .brand-container {
+            margin-bottom: 25px; /* Short header gap below logo */
+        }
+
+        /* LOGO SCALED 3X */
+        .master-logo {
+            height: 135px; /* 3x original 45px height */
+            width: auto;
+            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4));
+        }
+
+        .nav-links { display: flex; gap: 35px; }
+        .nav-links a { 
+            text-decoration: none; color: #888; 
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase; 
+            letter-spacing: 2px; transition: 0.4s;
+        }
+        .nav-links a:hover { color: var(--gold); letter-spacing: 4px; }
 
         /* --- FEATURED FILM HERO --- */
         .media-hero {
-            height: 85vh;
+            height: 75vh;
             background: linear-gradient(to bottom, rgba(0,0,0,0.4), var(--bg)), url('https://images.unsplash.com/photo-1485846234645-a62644ef7467?auto=format&fit=crop&q=80&w=2069');
             background-size: cover;
             background-position: center;
@@ -45,11 +62,11 @@
             padding: 80px 10%;
         }
         .production-tag { font-family: 'Syncopate'; font-size: 0.6rem; color: var(--gold); letter-spacing: 5px; margin-bottom: 15px; }
-        .media-hero h1 { font-family: 'Space Grotesk'; font-size: 5rem; text-transform: uppercase; line-height: 0.8; margin-bottom: 20px; }
+        .media-hero h1 { font-family: 'Space Grotesk'; font-size: 5.5rem; text-transform: uppercase; line-height: 0.8; margin-bottom: 20px; }
         .media-hero p { max-width: 500px; color: #ccc; font-weight: 300; line-height: 1.6; margin-bottom: 30px; }
 
         /* --- CONTENT SLATE GRID --- */
-        .slate-container { padding: 100px 10%; }
+        .slate-container { padding: 80px 10%; }
         .section-header { 
             display: flex; justify-content: space-between; align-items: flex-end; 
             margin-bottom: 50px; border-bottom: 1px solid #1a1a1a; padding-bottom: 20px;
@@ -76,22 +93,18 @@
         .card-info h3 { font-family: 'Space Grotesk'; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 5px; }
         .card-info p { font-size: 0.7rem; color: #666; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* --- CTA STRIP --- */
-        .distribution-strip {
-            background: var(--gold);
-            padding: 40px 10%;
+        /* --- FOOTER STATUS & LOGO --- */
+        footer {
+            padding: 60px 10%;
+            background: #000;
+            border-top: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #000;
         }
-        .distribution-strip h4 { font-family: 'Syncopate'; font-size: 0.9rem; }
-        .btn-contact { 
-            border: 1px solid #000; padding: 12px 30px; 
-            font-family: 'Space Grotesk'; font-weight: 700; 
-            text-transform: uppercase; font-size: 0.7rem; 
-            text-decoration: none; color: #000;
-        }
+
+        .footer-left { display: flex; align-items: center; gap: 20px; }
+        .footer-logo { height: 35px; width: auto; opacity: 0.5; filter: grayscale(1); }
 
     </style>
 </head>
@@ -105,7 +118,8 @@
             <a href="index.html">Identity</a>
             <a href="portal.html">Exchange</a>
             <a href="foundation.html">Foundation</a>
-            <a href="command.html">Bridge</a>
+            <a href="capital.html">Investors</a>
+            <a href="sitemap.html">Index</a>
         </div>
     </nav>
 
@@ -155,15 +169,14 @@
         </div>
     </main>
 
-    <section class="distribution-strip">
-        <h4>Global Distribution & Licensing Inquiries</h4>
-        <a href="#" class="btn-contact">Contact Business Affairs</a>
-    </section>
-
-    <footer style="padding: 60px 10%; text-align: center; border-top: 1px solid #111;">
-        <div style="font-family: 'Syncopate'; font-size: 0.6rem; color: #333; letter-spacing: 5px;">
-            REALM PICTURES // A DIVISION OF SKRMG CONGLOMERATE
+    <footer>
+        <div class="footer-left">
+            <img src="logo.png" alt="SKRMG" class="footer-logo">
+            <div style="font-family: 'Syncopate'; font-size: 0.6rem; color: #333; letter-spacing: 5px;">
+                REALM PICTURES // A DIVISION OF SKRMG CONGLOMERATE
+            </div>
         </div>
+        <div style="font-size: 0.6rem; color: #444;">EST. 2026</div>
     </footer>
 
 </body>
