@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKRMG Embassy | Global Diplomatic Relations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --royal-blue: #002366;
+            --gold: #d4af37;
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --border: #e0e0e0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; }
+
+        /* --- DIPLOMATIC HEADER --- */
+        .embassy-header {
+            background: var(--royal-blue);
+            color: #fff;
+            padding: 80px 8%;
+            text-align: center;
+            border-bottom: 10px solid var(--gold);
+        }
+        .embassy-header h1 { font-family: 'Space Grotesk'; font-size: 2.5rem; text-transform: uppercase; letter-spacing: 4px; }
+        .embassy-header p { font-size: 0.8rem; letter-spacing: 6px; opacity: 0.7; margin-top: 10px; }
+
+        /* --- TREATY SECTIONS --- */
+        .treaty-container { padding: 80px 8%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        
+        .treaty-card { border-left: 1px solid var(--gold); padding-left: 30px; margin-bottom: 40px; }
+        .treaty-card h2 { font-family: 'Space Grotesk'; font-size: 1.2rem; margin-bottom: 15px; color: var(--royal-blue); }
+        .treaty-card p { font-size: 0.9rem; color: #555; line-height: 1.7; }
+
+        /* --- REGISTRY LOG --- */
+        .registry-box {
+            grid-column: span 2;
+            background: #f9f9f9;
+            border: 1px solid var(--border);
+            padding: 40px;
+            margin-top: 40px;
+        }
+        .registry-box h3 { font-family: 'Space Grotesk'; font-size: 0.9rem; margin-bottom: 20px; text-transform: uppercase; }
+        
+        .entry-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 0.8rem; }
+        .entry-row span { font-weight: 700; color: var(--royal-blue); }
+
+        /* --- ACTION BAR --- */
+        .diplomatic-actions {
+            text-align: center;
+            padding-bottom: 100px;
+        }
+        .btn-protocol {
+            background: var(--royal-blue);
+            color: #fff;
+            border: none;
+            padding: 18px 40px;
+            font-family: 'Space Grotesk';
+            text-transform: uppercase;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+        .btn-protocol:hover { background: var(--gold); color: #000; }
+
+    </style>
+</head>
+<body>
+
+    <header class="embassy-header">
+        <p>OFFICE OF GLOBAL COOPERATION</p>
+        <h1>The SKRMG Embassy</h1>
+        <p>REPRESENTING REPOSITORY RH41581781</p>
+    </header>
+
+    <main class="treaty-container">
+        
+        <div class="treaty-card">
+            <h2>Cultural Exchange Treaties</h2>
+            <p>We facilitate the distribution of Vexilla-secured media across international borders, ensuring that localized talent is protected by our global NAS-4 standards while respecting national digital sovereignty.</p>
+        </div>
+
+        <div class="treaty-card">
+            <h2>Bilateral Grant Alignment</h2>
+            <p>Our Foundation division works directly with foreign ministries to align public funding with the "Professions to Programs" initiative, creating a global talent pipeline for the next generation of VFX architects.</p>
+        </div>
+
+        <section class="registry-box">
+            <h3>Active Diplomatic Registry</h3>
+            <div class="entry-row">
+                <p>Partnership: <span>EU Media Directive Alignment</span></p>
+                <p>STATUS: VERIFIED</p>
+            </div>
+            <div class="entry-row">
+                <p>Liaison: <span>Department of Arts & Digital Innovation</span></p>
+                <p>STATUS: ACTIVE HANDSHAKE</p>
+            </div>
+            <div class="entry-row">
+                <p>Protocol: <span>International Biometric Ethics Accord</span></p>
+                <p>STATUS: SIGNED / RH41581781</p>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="diplomatic-actions">
+        <button class="btn-protocol">Schedule Diplomatic Inquiry</button>
+    </div>
+
+    <footer style="background: #f4f4f4; padding: 40px; text-align: center; font-size: 0.7rem; color: #999; border-top: 1px solid #ddd;">
+        SKRMG GLOBAL RELATIONS DIVISION | EMBASSY CORE | REPOSITORY RH41581781
+    </footer>
+
+</body>
+</html>
